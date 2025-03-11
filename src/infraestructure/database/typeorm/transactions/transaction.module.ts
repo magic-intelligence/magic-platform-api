@@ -16,7 +16,8 @@ import { Transactional } from './transactional.decorator';
     ],
     exports:[
         TRANSACTION_PORT,
-        Transactional
+        Transactional,
+        TransactionContext
     ]
 })
 export class TransactionModule {}

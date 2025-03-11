@@ -1,46 +1,21 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { getRepositoryToken } from '@nestjs/typeorm';
 import { StudentRepositoryImpl } from 'src/adapters/persistence/repositories/student.repository.impl';
 import { StudentSchema } from 'src/adapters/persistence/schemas';
 import { Transactional } from 'src/infraestructure/database/typeorm/transactions/transactional.decorator';
 import { StudentEntity } from 'src/core/student/domain/entities/student.entity';
-import { Repository } from 'typeorm';
-import { newDb } from 'pg-mem';
-import { pgMemDataSource } from 'src/infraestructure/database/pg-mem/pg-mem.data.source';
+import { DataSource, EntityManager } from 'typeorm';
+import createMemoryDatabase from 'src/infraestructure/database/pg-mem/create.memory.database';
+import { TransactionContext } from 'src/infraestructure/database/typeorm/transactions/transaction.context';
 
 describe('StudentRepositoryImpl', () => {
   let studentRepositoryImpl: StudentRepositoryImpl;
-  let repository: Repository<StudentSchema>;
   let transactional: Transactional;
-  let dataSource;
-
-
-  beforeEach(async () => {
-    dataSource = await pgMemDataSource();
-
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [
-        StudentRepositoryImpl,
-        {
-          provide: getRepositoryToken(StudentSchema),
-          useValue: dataSource.getRepository(StudentSchema),
-        },
-        {
-          provide: Transactional,
-          useValue: {
-            getManager: jest.fn().mockReturnValue(dataSource.manager),
-          },
-        },
-      ],
-    }).compile();
-
-    studentRepositoryImpl = module.get<StudentRepositoryImpl>(StudentRepositoryImpl);
-    repository = module.get<Repository<StudentSchema>>(getRepositoryToken(StudentSchema));
-    transactional = module.get<Transactional>(Transactional);
-  });
+  let db: DataSource;
 
   afterAll(async ()=>{
-    await dataSource.destroy();
+    db = await createMemoryDatabase([StudentSchema]);
+    
+    transactional = new Transactional( await new TransactionContext());
+    studentRepositoryImpl = new StudentRepositoryImpl(db.getRepository(StudentSchema), transactional);
   });
 
   it('should be defined', () => {

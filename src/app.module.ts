@@ -4,6 +4,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeormConfigModule } from './infraestructure/database/typeorm/typeorm.module';
 import { StudentModule } from './core/student/student.module';
 import { TransactionModule } from './infraestructure/database/typeorm/transactions/transaction.module';
+import { BranchModule } from './core/branch/branch.module';
+import { AddressModule } from './core/address/address.module';
 
 @Module({
   imports: [
@@ -11,6 +13,8 @@ import { TransactionModule } from './infraestructure/database/typeorm/transactio
     ConfigModule.forRoot(),
     TypeormConfigModule,
     StudentModule,
+    BranchModule,
+    AddressModule,
     TransactionModule,
   ],
 })

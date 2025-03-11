@@ -12,7 +12,6 @@ import { TransactionModule } from "src/infraestructure/database/typeorm/transact
             TransactionModule
         ],
         providers:[
-        StudentFamilyService, 
             {
                 provide: STUDENT_FAMILY_REPOSITORY,
                 useClass: StudentFamilyRepositoryImpl

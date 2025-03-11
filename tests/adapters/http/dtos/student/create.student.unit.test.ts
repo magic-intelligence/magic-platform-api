@@ -6,7 +6,7 @@ const createStudentDTO = new CreateStudentDTO();
     createStudentDTO.brothersNumber= 1;
     createStudentDTO.entryTime= '12:30';
     createStudentDTO.exitTime= '12:30';
-    createStudentDTO.familyStatusId= '45a7fc8b-f96e-4a22-be0d-0c74fde0ad3e';
+    createStudentDTO.familyStatusId= '11';
     createStudentDTO.allergyDescription= undefined;
     createStudentDTO.nickname= 'TestPrueba';
 
