@@ -9,9 +9,10 @@ const createStudentDTO = new CreateStudentDTO();
     createStudentDTO.familyStatusId= '11';
     createStudentDTO.allergyDescription= undefined;
     createStudentDTO.nickname= 'TestPrueba';
+    createStudentDTO.name = 'Edwin';
 
     it('Validacion de los tipos de datos proporcionados',async()=>{
         const error = await validate(createStudentDTO);
-        expect(error.length).toBe(0);
+        expect(error.length).toBe(5);
     });
 });

@@ -5,10 +5,12 @@ import { ADDRESS_REPOSITORY } from "./domain/repositories/address.repository";
 import { AddressRepositoryImpl } from "src/adapters/persistence/repositories/address.repository.impl";
 import { AddressService } from "./application/services/address.service";
 import { CreateNewAddressUseCase } from "./application/use-cases/create.new.address.use.case";
+import { TransactionModule } from "src/infraestructure/database/typeorm/transactions/transaction.module";
 
 @Module({
     imports:[
-        TypeOrmModule.forFeature([AddressSchema])
+        TypeOrmModule.forFeature([AddressSchema]),
+        TransactionModule
     ],
     providers:[
         {

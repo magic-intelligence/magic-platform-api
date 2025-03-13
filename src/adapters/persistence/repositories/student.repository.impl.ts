@@ -12,16 +12,16 @@ import { handlerExceptionError } from "src/shared/exceptions/handler.exception.e
 export class StudentRepositoryImpl implements StudentRepository{
     private logger = new Logger('StudentRepositoryImpl');
     constructor(
-        @InjectRepository(StudentSchema)
-        private readonly studentRepository: Repository<StudentSchema>,
+        // @InjectRepository(StudentSchema)
+        // private readonly studentRepository: Repository<StudentSchema>,
         private readonly transactional: Transactional,
     ){}
     async save(student: StudentEntity): Promise<StudentEntity> {
-        const manager = this.transactional.getManager();
-        const repo = manager.getRepository(StudentSchema);
         try {
+            const manager = this.transactional.getManager();
+            const transactionRepository = manager.getRepository(StudentSchema);
             const persistenceEntity = StudentMapper.toPersistence(student);
-            const savedEntity = await repo.save(persistenceEntity);
+            const savedEntity = await transactionRepository.save(persistenceEntity);
             return StudentMapper.toDomain(savedEntity);
         } catch (error) {
             return handlerExceptionError(error);

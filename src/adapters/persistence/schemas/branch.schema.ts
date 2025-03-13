@@ -10,11 +10,11 @@ export class BranchSchema extends BaseSchema{
     branchId: string;
     @Column({name: 'address_id', type: 'bigint', nullable: false})
     addressId: string;
-    @Column({name: 'name', nullable: false})
+    @Column({name: 'name', nullable: false, unique: true})
     name: string;
     @OneToOne( ()=> AddressSchema )
     @JoinColumn({name: 'address_id'})
-    address: AddressSchema;
+    address?: AddressSchema;
 
     @OneToMany(()=> ParentFamilySchema, (parentFamily)=> parentFamily.branch)
     parentFamilies?: ParentFamilySchema[];

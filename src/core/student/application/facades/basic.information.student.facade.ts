@@ -19,13 +19,12 @@ export class BasicInformationStudentFacade {
     async saveStudent(dto: CreateStudentDTO): Promise<StudentEntity>{
         return this.transaction.run<StudentEntity>(async ()=>{
             const student = await this.basicInformationStudentUseCase.execute(dto);
-            this.logger.log(student);
             
-            const studentFamily = await this.studentFamilyService.save({
+            await this.studentFamilyService.save({
                 parentFamilyId: dto.parentFamilyId,
                 studentId: student.studentId
             });
-            this.logger.log(studentFamily);
+
             return student;
         });
     }

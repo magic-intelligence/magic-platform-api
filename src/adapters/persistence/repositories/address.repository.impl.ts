@@ -1,21 +1,26 @@
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 import { AddressRepository } from "src/core/address/domain/repositories/address.repository";
-import { Repository } from "typeorm";
 import { AddressSchema } from "../schemas";
-import { InjectRepository } from "@nestjs/typeorm";
 import { AddressMapper } from "../mappers/address.mapper";
 import { handlerExceptionError } from "src/shared/exceptions/handler.exception.error";
+import { Transactional } from "src/infraestructure/database/typeorm/transactions/transactional.decorator";
+import { Injectable } from "@nestjs/common";
 
+@Injectable()
 export class AddressRepositoryImpl implements AddressRepository{
     constructor(
-        @InjectRepository(AddressSchema)
-        private readonly addressRepository: Repository<AddressSchema>,
+        // @InjectRepository(AddressSchema)
+        // private readonly addressRepository: Repository<AddressSchema>,
+        private readonly transactional: Transactional,
     ){}
     async save(entity: AddressEntity): Promise<AddressEntity> {
         try {
+            const manager = this.transactional.getManager();
+            const transactionRepository = manager.getRepository(AddressSchema);
+
             const schema = AddressMapper.toPersistence(entity);
 
-            const result = await this.addressRepository.save(schema);
+            const result = await transactionRepository.save(schema);
 
             return AddressMapper.toDomain(result);
         } catch (error) {

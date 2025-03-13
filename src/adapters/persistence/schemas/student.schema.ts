@@ -9,9 +9,9 @@ import { BranchSchema } from "./branch.schema";
 export class StudentSchema extends BaseSchema{
     @PrimaryGeneratedColumn('increment', {name: 'student_id', type: 'bigint'})
     studentId: string;
-    @Column({name: 'family_status_id', type: 'bigint', nullable: false})
+    @Column({name: 'family_status_id', type: 'bigint', nullable: false, unique: false})
     familyStatusId: string;
-    @Column({name: 'branch_id', type: 'bigint', nullable: false})
+    @Column({name: 'branch_id', type: 'bigint', nullable: false, unique: false})
     branchId: string;
     @Column({name: 'name', nullable: false})
     name: string;

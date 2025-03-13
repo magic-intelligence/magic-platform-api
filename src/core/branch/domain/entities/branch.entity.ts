@@ -7,7 +7,7 @@ export class BranchEntity extends BaseEntity{
     branchId: string;
     addressId: string;
     name: string;
-    address: AddressEntity;
+    address?: AddressEntity;
     parentFamilies?: ParentFamilyEntity[];
     students?: StudentEntity[];
 }

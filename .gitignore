@@ -1,6 +1,8 @@
 # Agregadas al proyecto
 postgres
 
+.vscode
+
 # compiled output
 /dist
 /node_modules
