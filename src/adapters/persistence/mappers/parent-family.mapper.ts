@@ -31,11 +31,11 @@ export class ParentFamilyMapper {
         return parentFamilySchema;
     }
 
-    static toPersistenceList(parentFamilies?: ParentFamilyEntity[]): ParentFamilySchema[]| undefined{
+    static toPersistenceList(parentFamilies?: ParentFamilyEntity[]){
         return parentFamilies?.map(item => this.toPersistence(item));
     }
 
-    static toDomainList(parentFamilies?: ParentFamilySchema[]): ParentFamilyEntity[]| undefined{
+    static toDomainList(parentFamilies?: ParentFamilySchema[]){
         return parentFamilies?.map(item => this.toDomain(item));
     }
 }

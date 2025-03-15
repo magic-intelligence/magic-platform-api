@@ -27,11 +27,11 @@ export class StudentMapper {
         return schema;
     }
 
-    static toDomainList(students?: StudentSchema[]): StudentEntity[]| undefined {
+    static toDomainList(students?: StudentSchema[]){
         return students?.map((student) => this.toDomain(student));
     }
 
-    static toPersistenceList(students?: StudentEntity[]): StudentSchema[]| undefined {
+    static toPersistenceList(students?: StudentEntity[]){
         return students?.map((student) => this.toPersistence(student));
     }
 }

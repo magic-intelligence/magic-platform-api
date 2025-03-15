@@ -51,7 +51,7 @@ export class StudentSchema extends BaseSchema{
     @ManyToOne(()=> BranchSchema, (branch)=> branch.students)
     @JoinColumn({name: 'branch_id'})
     branch: BranchSchema;
-    @OneToOne(()=> FamilyStatusSchema)
+    @ManyToOne(()=> FamilyStatusSchema, (familyStatus)=> familyStatus.students)
     @JoinColumn({name: 'family_status_id'})
     familyStatus: FamilyStatusSchema;
     @OneToMany(()=> StudentFamilySchema, (studentFamily)=> studentFamily.student)

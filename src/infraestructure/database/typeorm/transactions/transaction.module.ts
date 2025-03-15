@@ -5,6 +5,7 @@ import { TransactionContext } from './transaction.context';
 import { Transactional } from './transactional.decorator';
 
 @Module({
+    imports:[],
     providers:[
         TypeOrmTransaction,
         TransactionContext,

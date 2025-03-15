@@ -16,8 +16,8 @@ export class ParentFamilyEntity extends BaseEntity{
     birthday?: Date;
     phoneNumber?: string;
     gender: PersonGender;
-    branch: BranchEntity;
+    branch?: BranchEntity;
     address?: AddressEntity;
-    relationship: RelationShipEntity;
+    relationship?: RelationShipEntity;
     studentFamilies?: StudentFamilyEntity[];
 }

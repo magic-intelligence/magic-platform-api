@@ -18,7 +18,7 @@ export class BranchMapper{
         return branchEntity;
     }
     
-    static toPersistence(branchEntity: BranchEntity): BranchSchema {
+    static toPersistence(branchEntity?: BranchEntity): BranchSchema {
         const branchSchema = plainToInstance(BranchSchema, branchEntity);
 
         if(!branchEntity ) return branchSchema;
@@ -27,6 +27,14 @@ export class BranchMapper{
         branchSchema.parentFamilies = ParentFamilyMapper.toPersistenceList(branchEntity.parentFamilies);
         branchSchema.address = AddressMapper.toPersistence(branchEntity.address);
         return branchSchema;
+    }
+
+    static toDomainList(branchSchemas?: BranchSchema[]){
+        return branchSchemas?.map(item => this.toDomain(item));
+    }
+
+    static toPersistenceList(branchEntities?: BranchEntity[]){
+        return branchEntities?.map(item => this.toPersistence(item));
     }
     
 }   

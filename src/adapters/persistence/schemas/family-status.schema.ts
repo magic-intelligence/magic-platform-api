@@ -1,5 +1,6 @@
 import { BaseSchema } from "src/infraestructure/database/typeorm/base/base.schema";
-import { Column, PrimaryGeneratedColumn, Entity as Schema} from "typeorm";
+import { Column, OneToMany, PrimaryGeneratedColumn, Entity as Schema} from "typeorm";
+import { StudentSchema } from "./student.schema";
 
 @Schema('family_status')
 export class FamilyStatusSchema extends BaseSchema{
@@ -9,4 +10,7 @@ export class FamilyStatusSchema extends BaseSchema{
     name: string;
     @Column({name: 'description', nullable: true})
     description?: string;
+
+    @OneToMany(()=> StudentSchema, (student)=> student.familyStatus )
+    students?: StudentSchema[];
 }

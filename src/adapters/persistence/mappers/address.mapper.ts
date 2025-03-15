@@ -10,4 +10,12 @@ export class AddressMapper {
     static toPersistence(addressEntity?: AddressEntity): AddressSchema {
         return plainToInstance(AddressSchema, addressEntity);
     }
+
+    static toDomainList(addressSchemas?: AddressSchema[]){
+        return addressSchemas?.map(item=> this.toDomain(item));
+    }
+
+    static toPersistenceList(addressEntities?: AddressEntity[]){
+        return addressEntities?.map(item=> this.toPersistence(item));
+    }
 }

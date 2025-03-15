@@ -6,11 +6,11 @@ export class StudentFamilyPresenter {
             id: studentFamily.studentFamilyId,
             studentId: studentFamily.studentId,
             parentFamily:{
-                name: studentFamily.parentFamily.name,
-                paternalSurname: studentFamily.parentFamily.paternalSurname,
-                maternalSurname: studentFamily.parentFamily.maternalSurname,
-                relationship: studentFamily.parentFamily.relationship.name,
-                description: studentFamily.parentFamily.relationship.description,
+                name: studentFamily.parentFamily?.name,
+                paternalSurname: studentFamily.parentFamily?.paternalSurname,
+                maternalSurname: studentFamily.parentFamily?.maternalSurname,
+                relationship: studentFamily.parentFamily?.relationship?.name,
+                description: studentFamily.parentFamily?.relationship?.description,
             }
         }
     }

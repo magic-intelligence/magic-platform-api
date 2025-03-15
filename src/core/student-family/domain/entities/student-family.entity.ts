@@ -6,6 +6,6 @@ export class StudentFamilyEntity extends BaseEntity{
     studentFamilyId: string;
     studentId: string;
     parentFamilyId: string;
-    parentFamily: ParentFamilyEntity;
-    student: StudentEntity;
+    student?: StudentEntity;
+    parentFamily?: ParentFamilyEntity;
 }

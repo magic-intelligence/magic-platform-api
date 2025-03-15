@@ -13,8 +13,8 @@ export class StudentFamilySchema extends BaseSchema{
     parentFamilyId: string;
     @ManyToOne(()=> StudentSchema)
     @JoinColumn({name: 'student_id'})
-    student: StudentSchema;
+    student?: StudentSchema;
     @ManyToOne(()=> ParentFamilySchema, (parentFamily)=> parentFamily.studentFamilies)
     @JoinColumn({name: 'parent_family_id'})
-    parentFamily: ParentFamilySchema;
+    parentFamily?: ParentFamilySchema;
 }

@@ -21,4 +21,12 @@ export class EmergencyContactMapper{
         emergencyContactSchema.studentFamily = StudentFamilyMapper.toPersistence(emergencyContactEntity.studentFamily);
         return emergencyContactSchema; 
     }
+
+    static toDomainList(emergencyContactSchemas?: EmergencyContactSchema[]){
+        return emergencyContactSchemas?.map(item => this.toDomain(item));
+    }
+
+    static toPersistenceList(emergencyContactEntities?: EmergencyContactEntity[]){
+        return emergencyContactEntities?.map(item => this.toPersistence(item));
+    }
 }

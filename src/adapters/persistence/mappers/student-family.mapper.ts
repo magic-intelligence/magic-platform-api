@@ -27,11 +27,11 @@ export class StudentFamilyMapper{
         return studentFamilySchema;
     }
 
-    static toDomainList(studentFamiliesSchema?: StudentFamilySchema[]): StudentFamilyEntity[]| undefined{
+    static toDomainList(studentFamiliesSchema?: StudentFamilySchema[]){
         return studentFamiliesSchema?.map((studentFamilySchema) => this.toDomain(studentFamilySchema));
     }
 
-    static toPersistenceList(studentFamiliesEntity?: StudentFamilyEntity[]): StudentFamilySchema[]| undefined{
+    static toPersistenceList(studentFamiliesEntity?: StudentFamilyEntity[]){
         return studentFamiliesEntity?.map((studentFamilyEntity) => this.toPersistence(studentFamilyEntity));
     }
 }

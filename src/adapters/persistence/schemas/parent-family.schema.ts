@@ -31,13 +31,13 @@ export class ParentFamilySchema extends BaseSchema{
 
     @ManyToOne(()=> BranchSchema, (branch)=> branch.parentFamilies)
     @JoinColumn({name: 'branch_id'})
-    branch: BranchSchema;
+    branch?: BranchSchema;
     @OneToOne(()=> AddressSchema,{nullable: true})
     @JoinColumn({name: 'address_id'})
     address?: AddressSchema;
-    @OneToOne(()=> RelationshipSchema)
+    @ManyToOne(()=> RelationshipSchema, (relationship)=> relationship.parentFamilies)
     @JoinColumn({name: 'relationship_id'})
-    relationship: RelationshipSchema;
+    relationship?: RelationshipSchema;
     @OneToMany(()=> StudentFamilySchema, (studentFamily)=> studentFamily.parentFamily)
     studentFamilies?: StudentFamilySchema[];
 }

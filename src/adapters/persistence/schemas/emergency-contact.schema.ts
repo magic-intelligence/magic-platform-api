@@ -10,7 +10,8 @@ export class EmergencyContactSchema extends BaseSchema{
     studentFamilyId: string;
     @Column({name: 'priority_level', type: 'int', unique: true})
     priorityLevel: number;
+    
     @OneToOne(()=> StudentFamilySchema)
     @JoinColumn({name: 'student_family_id'})
-    studentFamily: StudentFamilySchema;
+    studentFamily?: StudentFamilySchema;
 }
