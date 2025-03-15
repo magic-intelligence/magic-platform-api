@@ -9,20 +9,25 @@
 2. Levantar el contenedor de docker
 ``` bash
 docker compose up -d
-``` 
-
-3. Instalar las dependencias del proyecto
-``` bash
-npm install 
-``` 
-
-4. Correr las migraciones para crear las entidades
-``` bash
-npm run migration:run 
 ```
 
-5. Correr el proyecto en modo desarrollo
+3. Instala el manejador de paquetes __pnpm__
 ``` bash
-npm run start:dev 
+npm install -g pnpm 
+``` 
+
+4. Instalar las dependencias del proyecto
+``` bash
+pnpm install 
+``` 
+
+5. Correr las migraciones para crear las entidades
+``` bash
+pnpm run migration:run 
+```
+
+6. Correr el proyecto en modo desarrollo
+``` bash
+pnpm run start:dev 
 ``` 
 
