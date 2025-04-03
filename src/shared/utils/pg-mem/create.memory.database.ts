@@ -1,18 +1,28 @@
 import { DataSource } from "typeorm";
 import { DataType, newDb} from 'pg-mem';
-import { AddressSchema, BranchSchema, FamilyStatusSchema, ParentFamilySchema, RelationshipSchema, StudentFamilySchema, StudentSchema } from "src/adapters/persistence/schemas";
+
 export async function createMemoryDatabase():Promise<DataSource>{
-  const db = newDb();
+  
+  const db = newDb({
+    autoCreateForeignKeyIndices: true,
+  });
+
+  db.public.interceptQueries((query) => {
+    if (query.includes("information_schema.columns")) {
+      return [];
+    }
+  });
 
   db.public.registerFunction({
     name: 'current_database',
     returns: DataType.text,
     implementation: () => 'test_db',
   });
+
   db.public.registerFunction({
     name: 'version',
     returns: DataType.text,
-    implementation: () => 'PostgreSQL 15',
+    implementation: () => 'PostgreSQL 15.0, compiled by Visual C++ build 1914, 64-bit',
   });
 
   db.public.many(`
@@ -30,22 +40,16 @@ export async function createMemoryDatabase():Promise<DataSource>{
 
   const dataSource = db.adapters.createTypeormDataSource({
     type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'test',
-    password: 'test',
-    database: 'test',
-    synchronize: true,
-    dropSchema: true,
-    entities: [AddressSchema,
-      BranchSchema,
-      FamilyStatusSchema,
-      ParentFamilySchema,
-      RelationshipSchema,
-      StudentFamilySchema,
-      StudentSchema,],
+    database: 'test_db',
+    entities: [`${__dirname}/../../../**/*.schema.{ts,js}`],
+    migrations: [`${__dirname}/../../../infraestructure/database/typeorm/migrations/*.{ts,js}`],
+    migrationsTableName: 'migrations',
+    synchronize: false,
   });
 
   await dataSource.initialize();
+  // await dataSource.synchronize();
+  await dataSource.runMigrations(); // En lugar de synchronize()
+
   return dataSource;
 }

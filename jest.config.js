@@ -10,7 +10,6 @@ module.exports = {
       '^src/(.*)$': '<rootDir>/src/$1',
     },
     collectCoverage: true,
-    // collectCoverageFrom: ['src/**/*.(service|use-case).ts'],
     coverageDirectory: './coverage',
     testEnvironment: 'node',
 };

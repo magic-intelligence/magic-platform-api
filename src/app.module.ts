@@ -6,6 +6,7 @@ import { StudentModule } from './core/student/student.module';
 import { TransactionModule } from './infraestructure/database/typeorm/transactions/transaction.module';
 import { BranchModule } from './core/branch/branch.module';
 import { AddressModule } from './core/address/address.module';
+import { EducationalCenterModule } from './core/educational-center/educational-center.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AddressModule } from './core/address/address.module';
     BranchModule,
     AddressModule,
     TransactionModule,
+    EducationalCenterModule,
   ],
 })
 export class AppModule {}
