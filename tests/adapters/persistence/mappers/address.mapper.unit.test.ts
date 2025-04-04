@@ -5,7 +5,7 @@ import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 describe('Pruebas al address.mapper.ts', ()=>{
     test('Convertir de AddressShema a AddressEntity',()=>{
         const addressSchema = new AddressSchema();
-        addressSchema.addressId = '1';
+        addressSchema.addressId = 1n;
         addressSchema.city = 'Ometepec'; 
         addressSchema.district = 'Ometepec'; 
         addressSchema.exteriorNumber = 'NA'; 
@@ -25,7 +25,7 @@ describe('Pruebas al address.mapper.ts', ()=>{
 
     test('Convertir de AddressEntity a AddressSchema',()=>{
         const addressEntity = new AddressEntity();
-        addressEntity.addressId = '1';
+        addressEntity.addressId = 1n;
         addressEntity.city = 'Ometepec'; 
         addressEntity.district = 'Ometepec'; 
         addressEntity.exteriorNumber = 'NA'; 

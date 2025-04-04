@@ -3,7 +3,7 @@ import { ParentFamilySchema } from "../schemas/parent-family.schema";
 import { plainToInstance } from "class-transformer";
 import { RelationshipMapper } from "./relationship.mapper";
 import { AddressMapper } from "./address.mapper";
-import { BranchMapper } from "./branch.mapper";
+import { BranchOfficeMapper } from "./branch-office.mapper";
 import { StudentFamilyMapper } from "./student-family.mapper";
 
 export class ParentFamilyMapper {
@@ -12,7 +12,7 @@ export class ParentFamilyMapper {
         
         if( !parentFamilySchema ) return parentFamilyEntity;
         
-        parentFamilyEntity.branch = BranchMapper.toDomain(parentFamilySchema.branch);
+        parentFamilyEntity.branchOffice = BranchOfficeMapper.toDomain(parentFamilySchema.branchOffice);
         parentFamilyEntity.address = AddressMapper.toDomain(parentFamilySchema.address);
         parentFamilyEntity.relationship = RelationshipMapper.toDomain(parentFamilySchema.relationship);
         parentFamilyEntity.studentFamilies = StudentFamilyMapper.toDomainList(parentFamilySchema.studentFamilies);
@@ -24,7 +24,7 @@ export class ParentFamilyMapper {
         
         if( !parentFamilyEntity ) return parentFamilySchema;
 
-        parentFamilySchema.branch = BranchMapper.toPersistence(parentFamilyEntity.branch);
+        parentFamilySchema.branchOffice = BranchOfficeMapper.toPersistence(parentFamilyEntity.branchOffice);
         parentFamilySchema.address = AddressMapper.toPersistence(parentFamilyEntity.address);
         parentFamilySchema.relationship = RelationshipMapper.toPersistence(parentFamilyEntity.relationship);
         parentFamilySchema.studentFamilies = StudentFamilyMapper.toPersistenceList(parentFamilyEntity.studentFamilies);

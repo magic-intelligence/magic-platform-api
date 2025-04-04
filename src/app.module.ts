@@ -4,7 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeormConfigModule } from './infraestructure/database/typeorm/typeorm.module';
 import { StudentModule } from './core/student/student.module';
 import { TransactionModule } from './infraestructure/database/typeorm/transactions/transaction.module';
-import { BranchModule } from './core/branch/branch.module';
+import { BranchOfficeModule } from './core/branch-office/branch-office.module';
 import { AddressModule } from './core/address/address.module';
 import { EducationalCenterModule } from './core/educational-center/educational-center.module';
 
@@ -14,7 +14,7 @@ import { EducationalCenterModule } from './core/educational-center/educational-c
     ConfigModule.forRoot(),
     TypeormConfigModule,
     StudentModule,
-    BranchModule,
+    BranchOfficeModule,
     AddressModule,
     TransactionModule,
     EducationalCenterModule,

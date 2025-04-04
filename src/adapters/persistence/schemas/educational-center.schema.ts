@@ -1,5 +1,6 @@
 import { BaseSchema } from "src/infraestructure/database/typeorm/base/base.schema";
-import { Column, PrimaryGeneratedColumn, Entity as Schema } from "typeorm";
+import { Column, OneToMany, PrimaryGeneratedColumn, Entity as Schema } from "typeorm";
+import { BranchOfficeSchema } from "./branch-office.schema";
 
 @Schema({name: 'educational_center'})
 export class EducationalCenterSchema extends BaseSchema {
@@ -7,4 +8,7 @@ export class EducationalCenterSchema extends BaseSchema {
     educationalCenterId?: bigint;
     @Column({name: 'name', type: 'varchar', unique: true})
     name: string;
+
+    @OneToMany(()=> BranchOfficeSchema, (branchOfficeSchema)=> branchOfficeSchema.educationalCenter)
+    branchOffices?: BranchOfficeSchema[];
 }

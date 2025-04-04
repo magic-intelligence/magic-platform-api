@@ -1,5 +1,5 @@
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
-import { BranchEntity } from "src/core/branch/domain/entities/branch.entity";
+import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity";
 import { RelationShipEntity } from "src/core/relationship/domain/entities/relationship.entity";
 import { StudentFamilyEntity } from "src/core/student-family/domain/entities/student-family.entity";
 import { BaseEntity } from "src/shared/types/entities/base.entity";
@@ -8,7 +8,7 @@ import { PersonGender } from "src/shared/value-object/person.gender";
 export class ParentFamilyEntity extends BaseEntity{
     parentFamilyId: string;
     relationshipId: string;
-    branchId: string;
+    branchOfficeId: string;
     addressId?: string;
     name: string;
     paternalSurname: string;
@@ -16,7 +16,7 @@ export class ParentFamilyEntity extends BaseEntity{
     birthday?: Date;
     phoneNumber?: string;
     gender: PersonGender;
-    branch?: BranchEntity;
+    branchOffice?: BranchOfficeEntity;
     address?: AddressEntity;
     relationship?: RelationShipEntity;
     studentFamilies?: StudentFamilyEntity[];

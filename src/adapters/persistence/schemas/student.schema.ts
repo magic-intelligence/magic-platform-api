@@ -3,7 +3,7 @@ import { BaseSchema } from "../../../infraestructure/database/typeorm/base/base.
 import { StudentFamilySchema } from "./student-family.schema";
 import { FamilyStatusSchema } from "./family-status.schema";
 import { PersonGender } from "src/shared/value-object/person.gender";
-import { BranchSchema } from "./branch.schema";
+import { BranchOfficeSchema } from "./branch-office.schema";
 
 @Schema({name: 'student'})
 export class StudentSchema extends BaseSchema{
@@ -48,9 +48,9 @@ export class StudentSchema extends BaseSchema{
     @Column({name: 'allergy_description', type: 'text', nullable: true})
     allergyDescription?: string;
    
-    @ManyToOne(()=> BranchSchema, (branch)=> branch.students)
+    @ManyToOne(()=> BranchOfficeSchema, (branchOffice)=> branchOffice.students)
     @JoinColumn({name: 'branch_id'})
-    branch: BranchSchema;
+    branch: BranchOfficeSchema;
     @ManyToOne(()=> FamilyStatusSchema, (familyStatus)=> familyStatus.students)
     @JoinColumn({name: 'family_status_id'})
     familyStatus: FamilyStatusSchema;

@@ -1,34 +1,34 @@
 import { validate } from "class-validator";
-import { CreateBranchWithAddressDTO } from "src/adapters/http/dtos/branch/create.branch.with.address.dto";
+import { CreateBranchOfficeWithAddressDTO } from "src/adapters/http/dtos/branch-office/create.branch-office.with.address.dto";
 
-describe('Pruebas al create.branch.with.address.dto.ts', ()=>{
+describe('Pruebas al create.branch-office.with.address.dto.ts', ()=>{
     test('Debe validar que los datos sean correctos, vienen del request api', async ()=>{
-        const newBranchDTO = new CreateBranchWithAddressDTO();
-        newBranchDTO.name = 'Sucursal Ometepec'
-        newBranchDTO.city = 'Ometepec'; 
-        newBranchDTO.district = 'Ometepec'; 
-        newBranchDTO.exteriorNumber = 'NA'; 
-        newBranchDTO.interiorNumber = '14'; 
-        newBranchDTO.postalCode = 41700; 
-        newBranchDTO.state = 'Guerrero'; 
-        newBranchDTO.street = 'Juan Ruiz de Alarcon';
+        const newBranchOfficeDTO = new CreateBranchOfficeWithAddressDTO();
+        newBranchOfficeDTO.name = 'Sucursal Ometepec'
+        newBranchOfficeDTO.city = 'Ometepec'; 
+        newBranchOfficeDTO.district = 'Ometepec'; 
+        newBranchOfficeDTO.exteriorNumber = 'NA'; 
+        newBranchOfficeDTO.interiorNumber = '14'; 
+        newBranchOfficeDTO.postalCode = 41700; 
+        newBranchOfficeDTO.state = 'Guerrero'; 
+        newBranchOfficeDTO.street = 'Juan Ruiz de Alarcon';
 
-        const result = await validate(newBranchDTO);
+        const result = await validate(newBranchOfficeDTO);
         expect(result.length).toBe(0);
     });
     test('Debe fallar por datos incorrectos y por falta de datos, vienen del request api', async ()=>{
-        const newBranchDTO = new CreateBranchWithAddressDTO();
+        const newBranchOfficeDTO = new CreateBranchOfficeWithAddressDTO();
         // Para que haga falta
-        // newBranchDTO.name = 'Sucursal Ometepec'
-        newBranchDTO.city = 'Ometepec'; 
-        newBranchDTO.district = 'Ometepec'; 
-        newBranchDTO.exteriorNumber = 'NA'; 
-        newBranchDTO.interiorNumber = '14'; 
-        newBranchDTO.postalCode = NaN; 
-        newBranchDTO.state = ''; 
-        newBranchDTO.street = 'Juan Ruiz de Alarcon';
+        // newBranchOfficeDTO.name = 'Sucursal Ometepec'
+        newBranchOfficeDTO.city = 'Ometepec'; 
+        newBranchOfficeDTO.district = 'Ometepec'; 
+        newBranchOfficeDTO.exteriorNumber = 'NA'; 
+        newBranchOfficeDTO.interiorNumber = '14'; 
+        newBranchOfficeDTO.postalCode = NaN; 
+        newBranchOfficeDTO.state = ''; 
+        newBranchOfficeDTO.street = 'Juan Ruiz de Alarcon';
 
-        const result = await validate(newBranchDTO);
+        const result = await validate(newBranchOfficeDTO);
         expect(result.length).toBe(3);
     });
 });

@@ -3,7 +3,7 @@ import { Entity as Schema, JoinColumn, OneToMany, OneToOne, Column, ManyToOne, P
 import { RelationshipSchema } from "./relationship.schema";
 import { StudentFamilySchema } from "./student-family.schema";
 import { PersonGender } from "src/shared/value-object/person.gender";
-import { BranchSchema } from "./branch.schema";
+import { BranchOfficeSchema } from "./branch-office.schema";
 import { AddressSchema } from "./address.schema";
 
 @Schema({name: 'parent_family'})
@@ -13,7 +13,7 @@ export class ParentFamilySchema extends BaseSchema{
     @Column({name: 'relationship_id', type: 'bigint', nullable: false})
     relationshipId: string;
     @Column({name: 'branch_id', type: 'bigint', nullable: false})
-    branchId: string;
+    branchOfficeId: string;
     @Column({name: 'address_id', type: 'bigint', nullable: true})
     addressId?: string;
     @Column({name: 'name', nullable: false})
@@ -29,9 +29,9 @@ export class ParentFamilySchema extends BaseSchema{
     @Column({name: 'gender', type: 'enum', enum: PersonGender, nullable: false})
     gender: PersonGender;
 
-    @ManyToOne(()=> BranchSchema, (branch)=> branch.parentFamilies)
+    @ManyToOne(()=> BranchOfficeSchema, (branchOffice)=> branchOffice.parentFamilies)
     @JoinColumn({name: 'branch_id'})
-    branch?: BranchSchema;
+    branchOffice?: BranchOfficeSchema;
     @OneToOne(()=> AddressSchema,{nullable: true})
     @JoinColumn({name: 'address_id'})
     address?: AddressSchema;

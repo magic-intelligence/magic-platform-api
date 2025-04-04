@@ -1,4 +1,4 @@
-export * from './branch.schema';
+export * from './branch-office.schema';
 export * from './address.schema';
 export * from './student.schema';
 export * from './family-status.schema';
