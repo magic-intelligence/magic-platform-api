@@ -2,10 +2,16 @@ import { CreateNewAddressUseCase } from "src/core/address/application/use-cases/
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 import { AddressRepository } from "src/core/address/domain/repositories/address.repository";
 
+// Metodología: Test Driven Development
+// Ciclo de la metodología{TDD}: Red-Green-Refactor
+// Patron: Given-When-Then
+
 describe('Pruebas al create.new.address.use.case.ts', ()=>{
+    // Given
     let addressRepository: jest.Mocked<AddressRepository>;
     let createNewAddressUseCase: CreateNewAddressUseCase;
 
+    // When
     beforeEach(()=>{
         addressRepository = {
             delete: jest.fn(),
@@ -17,7 +23,9 @@ describe('Pruebas al create.new.address.use.case.ts', ()=>{
         createNewAddressUseCase = new CreateNewAddressUseCase(addressRepository);
     });
 
+    // Then
     test('debe registrar un address correctamente', async ()=>{
+        // Given
         const address: AddressEntity = {
             addressId: 5n,
             city: 'Ometepec', 
@@ -31,9 +39,9 @@ describe('Pruebas al create.new.address.use.case.ts', ()=>{
             createdAt: new Date("2025-03-11T20:58:06.331Z"),
             updatedAt: new Date("2025-03-11T20:58:06.331Z"),
         }
-
         addressRepository.save.mockResolvedValue(address);
 
+        // When
         const result = await createNewAddressUseCase.save({
             city: 'Ometepec', 
             district: 'Ometepec', 
@@ -44,6 +52,7 @@ describe('Pruebas al create.new.address.use.case.ts', ()=>{
             street: 'Juan Ruiz de Alarcon'
         });
 
+        // Then
         expect(result).toEqual(address);
     });
 

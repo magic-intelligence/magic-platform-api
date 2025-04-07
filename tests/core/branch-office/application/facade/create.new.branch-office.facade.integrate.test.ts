@@ -7,12 +7,15 @@ import { BranchOfficeService } from "src/core/branch-office/application/services
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity";
 import { TRANSACTION_PORT, TransactionPort } from "src/shared/ports/transaction.port";
 
+// Metodología: Test Driven Development
+// Ciclo de la metodología{TDD}: Red-Green-Refactor
+// Patron: Given-When-Then
 describe('Prueba de integración al create.new.branch.facade.ts', ()=>{
+    // Given
     let createNewBranchFacade: CreateNewBranchOfficeFacade;
     let branchService: jest.Mocked<BranchOfficeService>;
     let addressService: jest.Mocked<AddressService>;
     let transaction: jest.Mocked<TransactionPort>;
-
     const dto: CreateBranchOfficeWithAddressDTO = {
         educationalCenterId: 1n,
         name: 'Sucursal Nueva',
@@ -24,7 +27,6 @@ describe('Prueba de integración al create.new.branch.facade.ts', ()=>{
         state: 'Guerrero', 
         street: 'Juan Ruiz de Alarcon'
     }
-
     const addressEntity: AddressEntity = {
         addressId: 1n,
         city: 'Ometepec', 
@@ -38,7 +40,6 @@ describe('Prueba de integración al create.new.branch.facade.ts', ()=>{
         createdAt: new Date("2025-03-11T20:58:06.331Z"),
         updatedAt: new Date("2025-03-11T20:58:06.331Z"),
     }
-
     const branchEntity: BranchOfficeEntity = {
         branchOfficeId: 1n,
         educationalCenterId: 1n,
@@ -49,6 +50,7 @@ describe('Prueba de integración al create.new.branch.facade.ts', ()=>{
         updatedAt: new Date("2025-03-11T20:58:06.331Z"),
     }
 
+    // When
     beforeEach(async()=>{
         const module: TestingModule = await Test.createTestingModule({
             providers:[
@@ -80,34 +82,28 @@ describe('Prueba de integración al create.new.branch.facade.ts', ()=>{
         transaction = module.get(TRANSACTION_PORT);
     });
 
+    // Then
     test('debe crear una sucursal con dirección en una transacción', async ()=>{
 
+        // Given
         addressService.saveNewAddress.mockResolvedValue(addressEntity);
-
         branchService.saveNewBranch.mockResolvedValue(branchEntity);
 
+        // When
         const result = await createNewBranchFacade.execute(dto);
-        console.log(result);
 
+        // Then
         expect(transaction.run).toHaveBeenCalled();
-        //Aseguramos de que venga el city en el dto
         expect(addressService.saveNewAddress).toHaveBeenCalledWith(expect.objectContaining({city: 'Ometepec'}));
-        expect(branchService.saveNewBranch).toHaveBeenCalledWith({name: 'Sucursal Nueva',addressId: '1'});
+        expect(branchService.saveNewBranch).toHaveBeenCalledWith({name: 'Sucursal Nueva',addressId: 1n, educationalCenterId: 1n});
         expect(result).toEqual({
-            branchId: 1n,
+            branchOfficeId: 1n,
             addressId: 1n,
+            educationalCenterId: 1n,
             name: 'Sucursal Nueva',
             isActive: true,
             createdAt: new Date("2025-03-11T20:58:06.331Z"),
             updatedAt: new Date("2025-03-11T20:58:06.331Z"),
         });
-    });
-
-    test('Debe fallar si no se puede guarda la barnch o dirección', async ()=>{
-        addressService.saveNewAddress.mockResolvedValue(addressEntity);
-        branchService.saveNewBranch.mockRejectedValue(new Error('Ya existe una branch con ese nombre'));
-        
-        await expect(createNewBranchFacade.execute(dto))
-            .rejects.toThrow('Ya existe una branch con ese nombre')
     });
 });

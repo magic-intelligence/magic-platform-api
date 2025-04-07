@@ -1,6 +1,8 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { BadRequestException, Inject } from "@nestjs/common";
 import { CreateNewEducationalCenterUseCase } from "../use-case/create.new.educational-center.use-case";
 import { CreateEducationalCenterDTO } from "src/adapters/http/dtos/educational-center/create.educational-center.dto";
+import { EducationalCenterEntity } from "../../domain/entities/educational-center.entity";
+import { validate } from "class-validator";
 
 export class EducationalCenterService{
     constructor(
@@ -9,6 +11,12 @@ export class EducationalCenterService{
     ){}
 
     async saveNewEducationalCenter(dto: CreateEducationalCenterDTO){
-        return await this.createNewEducationalCenterUseCase.save(dto);
+        
+        // Segunda validacion del DTO
+        if(!await validate(dto)) throw new BadRequestException();
+
+        const entity = new EducationalCenterEntity();
+        entity.name = dto.name;
+        return await this.createNewEducationalCenterUseCase.save(entity);
     }
 }

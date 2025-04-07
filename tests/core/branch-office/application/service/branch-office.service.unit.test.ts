@@ -2,10 +2,16 @@ import { CreateBranchOfficeDTO } from "src/adapters/http/dtos/branch-office/crea
 import { BranchOfficeService } from "src/core/branch-office/application/services/branch-office.service";
 import { CreateNewBranchOfficeUseCase } from "src/core/branch-office/application/use-cases/create.new.branch-office.use.case";
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity"
+
+// Metodología: Test Driven Development
+// Ciclo de la metodología{TDD}: Red-Green-Refactor
+// Patron: Given-When-Then
 describe('Pruebas al branch.service.ts', ()=>{
+    // Given
     let branchOfficeService: BranchOfficeService;
     let createNewBranchOfficeUseCase: jest.Mocked<CreateNewBranchOfficeUseCase>;
 
+    // When
     beforeEach(() => {
         // Mock del caso de uso
         createNewBranchOfficeUseCase = {
@@ -16,15 +22,15 @@ describe('Pruebas al branch.service.ts', ()=>{
         branchOfficeService = new BranchOfficeService(createNewBranchOfficeUseCase);
     });
 
+
+    // Then
     test("Debe llamar a createNewBranchOfficeUseCase.save() con los datos correctos", async () => {
-        // Arrange (Preparar datos)
+        // Given
         const dto: CreateBranchOfficeDTO = {
             addressId: 123n,
             educationalCenterId: 1n,
             name: "Sucursal Central",
         };
-
-        // Mock de la respuesta esperada
         const expectedResponse: BranchOfficeEntity = {
             name: "Sucursal Monterreyy",
             educationalCenterId: 1n,
@@ -36,10 +42,10 @@ describe('Pruebas al branch.service.ts', ()=>{
         };
         createNewBranchOfficeUseCase.save.mockResolvedValue(expectedResponse);
 
-        // Act (Ejecutar función)
+        // When
         const result = await branchOfficeService.saveNewBranch(dto);
 
-        // Assert (Verificar resultados)
+        // Then
         expect(createNewBranchOfficeUseCase.save).toHaveBeenCalledWith(dto);
         expect(result).toEqual(expectedResponse);
     });

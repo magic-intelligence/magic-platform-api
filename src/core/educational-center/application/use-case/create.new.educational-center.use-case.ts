@@ -10,9 +10,7 @@ export class CreateNewEducationalCenterUseCase {
         private readonly educationalCenterRepository: EducationalCenterRepository,
     ) {}
 
-    async save(dto: CreateEducationalCenterDTO) {
-        const entity = new EducationalCenterEntity();
-        entity.name = dto.name;
+    async save(entity: EducationalCenterEntity) {
         return await this.educationalCenterRepository.save(entity);
     }
 } 

@@ -7,11 +7,10 @@ import { EducationalCenterRepository } from "src/core/educational-center/domain/
 // Ciclo de la metodología{TDD}: Red-Green-Refactor
 // Patron: Given-When-Then
 describe('Pruebas el create.new.educational-center.use-case.ts', ()=>{
-    // Given
+    // s
     let educationalCenter: jest.Mocked<EducationalCenterRepository>;
     let createNewEducationalCenterUseCase: CreateNewEducationalCenterUseCase;
 
-    // When
     beforeEach(()=>{
         educationalCenter = {
             delete: jest.fn(),
@@ -23,7 +22,6 @@ describe('Pruebas el create.new.educational-center.use-case.ts', ()=>{
         createNewEducationalCenterUseCase = new CreateNewEducationalCenterUseCase(educationalCenter);
     });
     
-    // Then
     test('Debe registrar un EducationalCenter correctamente', async ()=>{
         // Given
         const educationalCenterEntity: EducationalCenterEntity = {
@@ -43,4 +41,6 @@ describe('Pruebas el create.new.educational-center.use-case.ts', ()=>{
         // Then
         expect(result).toEqual(educationalCenterEntity);
     });
+
+    // Agregar caso de error
 });

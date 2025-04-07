@@ -2,8 +2,12 @@ import { AddressMapper } from "src/adapters/persistence/mappers/address.mapper";
 import { AddressSchema } from "src/adapters/persistence/schemas";
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 
+// Metodología: Test Driven Development
+// Ciclo de la metodología{TDD}: Red-Green-Refactor
+// Patron: Given-When-Then
 describe('Pruebas al address.mapper.ts', ()=>{
     test('Convertir de AddressShema a AddressEntity',()=>{
+        // Given
         const addressSchema = new AddressSchema();
         addressSchema.addressId = 1n;
         addressSchema.city = 'Ometepec'; 
@@ -17,13 +21,16 @@ describe('Pruebas al address.mapper.ts', ()=>{
         addressSchema.createdAt = new Date('2025-03-12');
         addressSchema.updatedAt = new Date('2025-03-12');
 
-
+        // When
         const branchEntity = AddressMapper.toDomain(addressSchema);
 
+        // Then
+        // Se espera que el objeto branchEntity contenga las propiedades de branchSchema
         expect(branchEntity).toEqual<AddressSchema>(addressSchema)
     });
 
     test('Convertir de AddressEntity a AddressSchema',()=>{
+        // Given
         const addressEntity = new AddressEntity();
         addressEntity.addressId = 1n;
         addressEntity.city = 'Ometepec'; 
@@ -37,9 +44,11 @@ describe('Pruebas al address.mapper.ts', ()=>{
         addressEntity.createdAt = new Date('2025-03-12');
         addressEntity.updatedAt = new Date('2025-03-12');
 
-
+        // When
         const addressSchema = AddressMapper.toPersistence(addressEntity);
 
+        // Then
+        // Se espera que el objeto branchSchema contenga las propiedades de branchEntity
         expect(addressSchema).toEqual<AddressEntity>(addressEntity)
     });
 });

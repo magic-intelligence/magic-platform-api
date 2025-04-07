@@ -4,7 +4,7 @@ import { Column, PrimaryGeneratedColumn, Entity as Schema } from "typeorm";
 @Schema({name: 'address'})
 export class AddressSchema extends BaseSchema{
     @PrimaryGeneratedColumn('increment', {name: 'address_id', type: 'bigint'})
-    addressId: bigint;
+    addressId?: bigint;
     @Column({name: 'postal_code', type: 'int', nullable: false})
     postalCode: number;
     @Column({name: 'street', type: 'text', nullable: false})

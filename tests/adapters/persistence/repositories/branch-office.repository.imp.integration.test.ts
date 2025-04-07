@@ -7,6 +7,8 @@ import { Transactional } from "src/infraestructure/database/typeorm/transactions
 import { createMemoryDatabase } from "src/shared/utils/pg-mem/create.memory.database";
 import { DataSource } from "typeorm";
 
+// Metodología: Behavior Driven Development
+// Patron: Given-When-Then
 describe('Pruebas al branch.repository.impl.ts', ()=>{
     let app: INestApplication;
     let datasource: DataSource;
@@ -47,7 +49,7 @@ describe('Pruebas al branch.repository.impl.ts', ()=>{
     test('Debe guardar una sucursal(Branch)', async () => {
         const branch: BranchOfficeSchema = {
           branchOfficeId: 1n,
-          addressId: '1',
+          addressId: 1n,
           educationalCenterId: 1n,
           name: 'Sucursal Nueva',
           isActive: true,

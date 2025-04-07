@@ -2,8 +2,12 @@ import { BranchOfficeMapper } from "src/adapters/persistence/mappers/branch-offi
 import { BranchOfficeSchema } from "src/adapters/persistence/schemas";
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity";
 
+// Metodología: Test Driven Development
+// Ciclo de la metodología{TDD}: Red-Green-Refactor
+// Patron: Given-When-Then
 describe('Pruebas al branch.mapper.ts', ()=>{
     test('Convertir de BranchOfficeShema a BranchOfficeEntity',()=>{
+        // Given
         const branchOfficeSchema:BranchOfficeSchema = {
             branchOfficeId: 1n,
             educationalCenterId: 1n,
@@ -17,12 +21,16 @@ describe('Pruebas al branch.mapper.ts', ()=>{
             students: undefined,
         }
 
+        // When
         const branchOfficeEntity = BranchOfficeMapper.toDomain(branchOfficeSchema);
 
+        // Then
+        // Se espera que el objeto branchOfficeEntity contenga las propiedades de branchOfficeSchema
         expect(branchOfficeEntity).toMatchObject(branchOfficeSchema)
     });
 
     test('Convertir de BranchOfficeEntity a BranchOfficeSchema',()=>{
+        // Given
         const branchOfficeEntity: BranchOfficeEntity = {
             branchOfficeId: 1n,
             educationalCenterId: 1n,
@@ -36,8 +44,11 @@ describe('Pruebas al branch.mapper.ts', ()=>{
             students: undefined,
         }
 
+        // When
         const branchOfficeSchema = BranchOfficeMapper.toPersistence(branchOfficeEntity);
         
+        // Then
+        // Se espera que el objeto branchOfficeSchema contenga las propiedades de branchOfficeEntity
         expect(branchOfficeSchema).toMatchObject(branchOfficeEntity)
     });
 });

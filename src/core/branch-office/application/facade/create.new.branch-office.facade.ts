@@ -30,7 +30,7 @@ export class CreateNewBranchOfficeFacade{
 
             const branchResponse = await this.branchOfficeService.saveNewBranch({
                 name: dto.name,
-                addressId: addressResponse.addressId,
+                addressId: addressResponse.addressId ?? BigInt(NaN),
                 educationalCenterId: dto.educationalCenterId
             });
 

@@ -3,10 +3,15 @@ import { AddressService } from "src/core/address/application/services/address.se
 import { CreateNewAddressUseCase } from "src/core/address/application/use-cases/create.new.address.use.case";
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 
+// Metodología: Test Driven Development
+// Ciclo de la metodología{TDD}: Red-Green-Refactor
+// Patron: Given-When-Then
 describe('Pruebas al address.service.ts', ()=>{
+    // Given
     let addressService: AddressService;
     let createNewAddressUseCase: jest.Mocked<CreateNewAddressUseCase>;
 
+    // When
     beforeEach(()=>{
         // Mock del caso de uso
         createNewAddressUseCase = {
@@ -18,8 +23,9 @@ describe('Pruebas al address.service.ts', ()=>{
 
     });
 
+    // Then
     test('Debe llamar a crearteNewAddressUseCase.save() con los datos correctos', async ()=>{
-        // Preparacion de los datos
+        // Given: Dado que
         const dto: CreateAddressDTO = {
             city: 'Ometepec', 
             district: 'Ometepec', 
@@ -29,8 +35,6 @@ describe('Pruebas al address.service.ts', ()=>{
             state: 'Guerrero', 
             street: 'Juan Ruiz de Alarcon'
         }
-
-        // Mock de la respuesta esperada
         const expextecResponse: AddressEntity = {
             ...dto,
             addressId: 5n,
@@ -40,10 +44,11 @@ describe('Pruebas al address.service.ts', ()=>{
         }
         createNewAddressUseCase.save.mockResolvedValue(expextecResponse);
 
-        // Ejecución de la función
+        // When: Cuando
         const result = await addressService.saveNewAddress(dto);
 
-        // Assert - Verificar resultados
+        // Then: Entonces
+        // Verificar que se haya llamado al caso de uso con los datos correctos
         expect(createNewAddressUseCase.save).toHaveBeenCalledWith(dto);
         expect(result).toEqual(expextecResponse);
     });
