@@ -2,7 +2,7 @@ import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity";
 import { RelationShipEntity } from "src/core/relationship/domain/entities/relationship.entity";
 import { StudentFamilyEntity } from "src/core/student-family/domain/entities/student-family.entity";
-import { BaseEntity } from "src/shared/types/entities/base.entity";
+import { BaseEntity } from "src/core/shared/base.entity";
 import { PersonGender } from "src/shared/value-object/person.gender";
 
 export class ParentFamilyEntity extends BaseEntity{

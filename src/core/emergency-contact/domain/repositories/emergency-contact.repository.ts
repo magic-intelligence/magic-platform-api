@@ -1,4 +1,4 @@
-import { GenericRepository } from "src/shared/repositories/generic.repository";
+import { GenericRepository } from "src/core/shared/generic.repository";
 import { EmergencyContactEntity } from "../entities/emergency-contact.entity";
 
 export const EMERGENCY_CONTACT_REPOSITORY = 'EMERGENCY_CONTACT_REPOSITORY';

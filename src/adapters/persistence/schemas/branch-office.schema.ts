@@ -1,9 +1,9 @@
-import { BaseSchema } from "src/infraestructure/database/typeorm/base/base.schema";
+import { BaseSchema } from "src/adapters/persistence/shared/base.schema";
 import { Column, Entity as Schema, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { AddressSchema } from "./address.schema";
 import { ParentFamilySchema } from "./parent-family.schema";
 import { StudentSchema } from "./student.schema";
-import { EducationalCenterSchema } from "./educational-center.schema";
+import { EducationalCenterSchema } from "../../educational-center/persistence/schemas/educational-center.schema";
 
 @Schema({name: 'branch_office'})
 export class BranchOfficeSchema extends BaseSchema{

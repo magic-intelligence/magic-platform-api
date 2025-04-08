@@ -1,4 +1,4 @@
-import { CreateEducationalCenterDTO } from "src/adapters/http/dtos/educational-center/create.educational-center.dto";
+import { CreateEducationalCenterDTO } from "src/adapters/educational-center/http/dtos/create.educational-center.dto";
 import { EducationalCenterService } from "src/core/educational-center/application/services/educational-center.service";
 import { CreateNewEducationalCenterUseCase } from "src/core/educational-center/application/use-case/create.new.educational-center.use-case";
 

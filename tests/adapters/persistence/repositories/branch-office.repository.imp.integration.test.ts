@@ -4,7 +4,7 @@ import { BranchOfficeRepositoryImpl } from "src/adapters/persistence/repositorie
 import { BranchOfficeSchema } from "src/adapters/persistence/schemas";
 import { AppModule } from "src/app.module";
 import { Transactional } from "src/infraestructure/database/typeorm/transactions/transactional.decorator";
-import { createMemoryDatabase } from "src/shared/utils/pg-mem/create.memory.database";
+import { createMemoryDatabase } from "src/shared/utils/create.memory.database";
 import { DataSource } from "typeorm";
 
 // Metodología: Behavior Driven Development

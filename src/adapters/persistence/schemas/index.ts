@@ -6,3 +6,4 @@ export * from './parent-family.schema';
 export * from './relationship.schema';
 export * from './student-family.schema';
 export * from './emergency-contact.schema';
+export * from '../../educational-center/persistence/schemas/educational-center.schema';

@@ -4,7 +4,7 @@ import { AddressMapper } from "./address.mapper";
 import { plainToInstance } from "class-transformer";
 import { StudentMapper } from "./student.mapper";
 import { ParentFamilyMapper } from "./parent-family.mapper";
-import { EducationalCenterMapper } from "./educational-center.mapper";
+import { EducationalCenterMapper } from "../../educational-center/persistence/mappers/educational-center.mapper";
 
 export class BranchOfficeMapper{
     static toDomain(branchOfficeSchema?: BranchOfficeSchema): BranchOfficeEntity {

@@ -1,6 +1,6 @@
 import { BadRequestException, Inject } from "@nestjs/common";
 import { CreateNewEducationalCenterUseCase } from "../use-case/create.new.educational-center.use-case";
-import { CreateEducationalCenterDTO } from "src/adapters/http/dtos/educational-center/create.educational-center.dto";
+import { CreateEducationalCenterDTO } from "src/adapters/educational-center/http/dtos/create.educational-center.dto";
 import { EducationalCenterEntity } from "../../domain/entities/educational-center.entity";
 import { validate } from "class-validator";
 

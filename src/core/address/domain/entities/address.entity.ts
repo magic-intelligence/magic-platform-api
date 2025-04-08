@@ -1,4 +1,4 @@
-import { BaseEntity } from "src/shared/types/entities/base.entity";
+import { BaseEntity } from "src/core/shared/base.entity";
 
 export class AddressEntity extends BaseEntity{
     addressId?: bigint;

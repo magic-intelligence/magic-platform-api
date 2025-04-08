@@ -1,5 +1,5 @@
 import { Column, Entity as Schema, JoinColumn, OneToMany, OneToOne, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { BaseSchema } from "../../../infraestructure/database/typeorm/base/base.schema";
+import { BaseSchema } from "../shared/base.schema";
 import { StudentFamilySchema } from "./student-family.schema";
 import { FamilyStatusSchema } from "./family-status.schema";
 import { PersonGender } from "src/shared/value-object/person.gender";

@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
-import { createMemoryDatabase } from 'src/shared/utils/pg-mem/create.memory.database';
+import { createMemoryDatabase } from 'src/shared/utils/create.memory.database';
 import { DataSource } from 'typeorm';
 import { AppModule } from 'src/app.module';
 

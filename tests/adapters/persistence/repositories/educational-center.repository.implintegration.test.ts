@@ -1,6 +1,6 @@
-import { EducationalCenterRepositoryImpl } from 'src/adapters/persistence/repositories/educational-center.repository.impl';
-import { EducationalCenterSchema } from 'src/adapters/persistence/schemas/educational-center.schema';
-import { createMemoryDatabase } from 'src/shared/utils/pg-mem/create.memory.database';
+import { EducationalCenterRepositoryImpl } from 'src/adapters/educational-center/persistence/repositories/educational-center.repository.impl';
+import { EducationalCenterSchema } from 'src/adapters/educational-center/persistence/schemas/educational-center.schema';
+import { createMemoryDatabase } from 'src/shared/utils/create.memory.database';
 import { DataSource } from 'typeorm';
 
 // Metodología: Behavior Driven Development

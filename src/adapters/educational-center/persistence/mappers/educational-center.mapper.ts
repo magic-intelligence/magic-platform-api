@@ -1,7 +1,7 @@
 import { EducationalCenterEntity } from "src/core/educational-center/domain/entities/educational-center.entity";
 import { EducationalCenterSchema } from "../schemas/educational-center.schema";
 import { plainToInstance } from "class-transformer";
-import { BranchOfficeMapper } from "./branch-office.mapper";
+import { BranchOfficeMapper } from "../../../persistence/mappers/branch-office.mapper";
 
 export class EducationalCenterMapper{
     static toDomain(schema?: EducationalCenterSchema): EducationalCenterEntity{

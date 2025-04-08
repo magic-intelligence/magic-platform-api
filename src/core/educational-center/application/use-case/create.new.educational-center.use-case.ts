@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { EDUCATIONAL_CENTER_REPOSITORY, EducationalCenterRepository } from "../../domain/repositories/educational-center.repository";
-import { CreateEducationalCenterDTO } from "src/adapters/http/dtos/educational-center/create.educational-center.dto";
+import { CreateEducationalCenterDTO } from "src/adapters/educational-center/http/dtos/create.educational-center.dto";
 import { EducationalCenterEntity } from "../../domain/entities/educational-center.entity";
 
 @Injectable()

@@ -1,5 +1,5 @@
-import { EducationalCenterMapper } from "src/adapters/persistence/mappers/educational-center.mapper";
-import { EducationalCenterSchema } from "src/adapters/persistence/schemas/educational-center.schema";
+import { EducationalCenterMapper } from "src/adapters/educational-center/persistence/mappers/educational-center.mapper";
+import { EducationalCenterSchema } from "src/adapters/educational-center/persistence/schemas/educational-center.schema";
 import { EducationalCenterEntity } from "src/core/educational-center/domain/entities/educational-center.entity";
 
 // Metodología: Test Driven Development

@@ -1,4 +1,4 @@
-import { BaseSchema } from "src/infraestructure/database/typeorm/base/base.schema";
+import { BaseSchema } from "src/adapters/persistence/shared/base.schema";
 import { StudentFamilySchema } from "./student-family.schema";
 import { Column, JoinColumn, OneToOne, PrimaryGeneratedColumn, Entity as Schema } from "typeorm";
 
