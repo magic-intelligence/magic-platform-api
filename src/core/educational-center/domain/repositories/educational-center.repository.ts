@@ -1,6 +1,6 @@
-import { GenericRepository } from "src/core/shared/generic.repository";
+import { BaseRepository } from "src/core/shared/base.repository";
 import { EducationalCenterEntity } from "../entities/educational-center.entity";
 
 export const EDUCATIONAL_CENTER_REPOSITORY = "EDUCATIONAL_CENTER_REPOSITORY";
 
-export interface EducationalCenterRepository extends GenericRepository<EducationalCenterEntity>{}
+export interface EducationalCenterRepository extends BaseRepository<EducationalCenterEntity>{}

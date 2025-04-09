@@ -1,5 +1,5 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { CreateBranchOfficeWithAddressDTO } from "src/adapters/http/dtos/branch-office/create.branch-office.with.address.dto";
+import { CreateBranchOfficeWithAddressDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.with.address.dto";
 import { AddressService } from "src/core/address/application/services/address.service";
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 import { CreateNewBranchOfficeFacade } from "src/core/branch-office/application/facade/create.new.branch-office.facade";

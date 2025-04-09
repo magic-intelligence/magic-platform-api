@@ -1,6 +1,6 @@
-import { BaseSchema } from "src/adapters/persistence/shared/base.schema";
+import { BaseSchema } from "src/adapters/shared/base.schema";
 import { Column, OneToMany, PrimaryGeneratedColumn, Entity as Schema } from "typeorm";
-import { BranchOfficeSchema } from "../../../persistence/schemas/branch-office.schema";
+import { BranchOfficeSchema } from "../../../branch-office/persistence/schemas/branch-office.schema";
 
 @Schema({name: 'educational_center'})
 export class EducationalCenterSchema extends BaseSchema {

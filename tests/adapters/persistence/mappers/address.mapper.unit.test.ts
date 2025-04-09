@@ -1,5 +1,5 @@
-import { AddressMapper } from "src/adapters/persistence/mappers/address.mapper";
-import { AddressSchema } from "src/adapters/persistence/schemas";
+import { AddressMapper } from "src/adapters/address/persistence/mappers/address.mapper";
+import { AddressSchema } from "src/adapters/address/persistence/schemas/address.schema";
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";
 
 // Metodología: Test Driven Development

@@ -4,7 +4,7 @@ import { EducationalCenterRepositoryImpl } from "./persistence/repositories/educ
 import { EducationalCenterController } from "./http/controllers/educational-center.controller";
 import { EducationalCenterCoreModule } from "src/core/educational-center/educational-center.core.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { EducationalCenterSchema } from "../persistence/schemas";
+import { EducationalCenterSchema } from "./persistence/schemas/educational-center.schema";
 
 @Module({
     imports:[

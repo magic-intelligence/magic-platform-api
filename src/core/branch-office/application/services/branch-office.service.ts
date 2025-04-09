@@ -1,4 +1,4 @@
-import { CreateBranchOfficeDTO } from "src/adapters/http/dtos/branch-office/create.branch-office.dto";
+import { CreateBranchOfficeDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.dto";
 import { CreateNewBranchOfficeUseCase } from "../use-cases/create.new.branch-office.use.case";
 import { BadRequestException, Inject } from "@nestjs/common";
 import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";

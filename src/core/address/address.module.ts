@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { AddressSchema } from "src/adapters/persistence/schemas";
 import { ADDRESS_REPOSITORY } from "./domain/repositories/address.repository";
-import { AddressRepositoryImpl } from "src/adapters/persistence/repositories/address.repository.impl";
+import { AddressRepositoryImpl } from "src/adapters/address/persistence/repositories/address.repository.impl";
 import { AddressService } from "./application/services/address.service";
 import { CreateNewAddressUseCase } from "./application/use-cases/create.new.address.use.case";
 import { TransactionModule } from "src/infraestructure/database/typeorm/transactions/transaction.module";
+import { AddressSchema } from "src/adapters/address/persistence/schemas/address.schema";
 
 @Module({
     imports:[

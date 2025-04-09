@@ -1,7 +1,7 @@
 import { INestApplication } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { BranchOfficeRepositoryImpl } from "src/adapters/persistence/repositories/branch-office.repository.impl";
-import { BranchOfficeSchema } from "src/adapters/persistence/schemas";
+import { BranchOfficeRepositoryImpl } from "src/adapters/branch-office/persistence/repositories/branch-office.repository.impl";
+import { BranchOfficeSchema } from "src/adapters/branch-office/persistence/schemas/branch-office.schema";
 import { AppModule } from "src/app.module";
 import { Transactional } from "src/infraestructure/database/typeorm/transactions/transactional.decorator";
 import { createMemoryDatabase } from "src/shared/utils/create.memory.database";

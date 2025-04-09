@@ -1,5 +1,5 @@
-import { BranchOfficeMapper } from "src/adapters/persistence/mappers/branch-office.mapper";
-import { BranchOfficeSchema } from "src/adapters/persistence/schemas";
+import { BranchOfficeMapper } from "src/adapters/branch-office/persistence/mappers/branch-office.mapper";
+import { BranchOfficeSchema } from "src/adapters/branch-office/persistence/schemas/branch-office.schema";
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity";
 
 // Metodología: Test Driven Development

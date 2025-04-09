@@ -1,4 +1,4 @@
-import { CreateStudentDTO } from "../../../../../src/adapters/http/dtos/student/create.student.dto";
+import { CreateStudentDTO } from "../../../../../src/adapters/student/http/dtos/create.student.dto";
 import { BasicInformationStudentUseCase } from "../../../../../src/core/student/application/use-cases/basic.information.student.use.case";
 import { StudentRepository } from "../../../../../src/core/student/domain/repositories/student.repository";
 

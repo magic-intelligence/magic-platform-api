@@ -1,5 +1,5 @@
 import { validate } from "class-validator";
-import { CreateBranchOfficeDTO } from "src/adapters/http/dtos/branch-office/create.branch-office.dto";
+import { CreateBranchOfficeDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.dto";
 
 describe('Preubas al DTO para crear branchs',()=>{
     test('Recibir datos correctos para crear un branch', async ()=>{

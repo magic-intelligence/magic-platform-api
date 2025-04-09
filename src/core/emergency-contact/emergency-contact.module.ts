@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { EMERGENCY_CONTACT_REPOSITORY } from './domain/repositories/emergency-contact.repository';
-import { EmergencyContactRepositoryImpl } from 'src/adapters/persistence/repositories/emergency-contact.repository.impl';
+import { EmergencyContactRepositoryImpl } from 'src/adapters/emergency-contact/persistence/repositories/emergency-contact.repository.impl';
 import { EmergencyContactService } from './application/services/emergecy-contact.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EmergencyContactSchema } from 'src/adapters/persistence/schemas/emergency-contact.schema';
+import { EmergencyContactSchema } from 'src/adapters/emergency-contact/persistence/schemas/emergency-contact.schema';
 
 @Module({
     imports: [

@@ -1,5 +1,5 @@
 import { validate } from "class-validator";
-import { CreateBranchOfficeWithAddressDTO } from "src/adapters/http/dtos/branch-office/create.branch-office.with.address.dto";
+import { CreateBranchOfficeWithAddressDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.with.address.dto";
 
 describe('Pruebas al create.branch-office.with.address.dto.ts', ()=>{
     test('Debe validar que los datos sean correctos, vienen del request api', async ()=>{

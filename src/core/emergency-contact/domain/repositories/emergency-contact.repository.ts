@@ -1,8 +1,8 @@
-import { GenericRepository } from "src/core/shared/generic.repository";
+import { BaseRepository } from "src/core/shared/base.repository";
 import { EmergencyContactEntity } from "../entities/emergency-contact.entity";
 
 export const EMERGENCY_CONTACT_REPOSITORY = 'EMERGENCY_CONTACT_REPOSITORY';
 
-export interface EmergencyContactRepository extends GenericRepository<EmergencyContactEntity>{
+export interface EmergencyContactRepository extends BaseRepository<EmergencyContactEntity>{
 
 }

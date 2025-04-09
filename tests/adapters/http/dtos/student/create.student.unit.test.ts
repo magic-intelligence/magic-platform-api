@@ -1,5 +1,5 @@
 import { validate } from "class-validator";
-import { CreateStudentDTO } from "../../../../../src/adapters/http/dtos/student/create.student.dto";
+import { CreateStudentDTO } from "../../../../../src/adapters/student/http/dtos/create.student.dto";
 
 describe('Pruebas al create.student.dto.ts',()=>{
 const createStudentDTO = new CreateStudentDTO();

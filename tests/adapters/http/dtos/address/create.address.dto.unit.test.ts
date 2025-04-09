@@ -1,5 +1,5 @@
 import { validate } from "class-validator";
-import { CreateAddressDTO } from "src/adapters/http/dtos/address/create.address.dto";
+import { CreateAddressDTO } from "src/adapters/address/http/dtos/create.address.dto";
 
 describe('Pruebas al create.address.dto.ts', ()=>{
     test('Debe ser correcta al recibir los datos', async ()=>{
