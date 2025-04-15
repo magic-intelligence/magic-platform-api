@@ -1,6 +1,7 @@
-import { EducationalCenterMapper } from "src/adapters/educational-center/persistence/mappers/educational-center.mapper";
-import { EducationalCenterSchema } from "src/adapters/educational-center/persistence/schemas/educational-center.schema";
+import { EducationalCenterMapper } from "src/core/educational-center/adapters/persistence/mappers/educational-center.mapper";
+import { EducationalCenterSchema } from "src/core/educational-center/adapters/persistence/schemas/educational-center.schema";
 import { EducationalCenterEntity } from "src/core/educational-center/domain/entities/educational-center.entity";
+import { EducationalCenterNameVO } from "src/core/educational-center/value-objects/educational-center.name.vo";
 
 // Metodología: Test Driven Development
 // Ciclo de la metodología{TDD}: Red-Green-Refactor
@@ -27,7 +28,7 @@ describe('Pruebas al educational-center.mapper.ts', ()=>{
         // Given
         const educationalCenterEntity: EducationalCenterEntity = {
             educationalCenterId: 1n,
-            name: 'Magic Intelligence',
+            name: EducationalCenterNameVO.create('Magic Intelligence'),
             isActive: true,
             createdAt: new Date('2025-03-12'),
             updatedAt: new Date('2025-03-12'),

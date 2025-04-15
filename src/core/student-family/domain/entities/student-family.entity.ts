@@ -1,6 +1,6 @@
 import { ParentFamilyEntity } from "src/core/parent-family/domain/entities/parent-family.entity";
 import { StudentEntity } from "src/core/student/domain/entities/student.entity";
-import { BaseEntity } from "src/core/shared/base.entity";
+import { BaseEntity } from "src/core/shared/domain/base.entity";
 
 export class StudentFamilyEntity extends BaseEntity{
     studentFamilyId: string;

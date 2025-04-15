@@ -1,4 +1,4 @@
-import { CreateAddressDTO } from "src/adapters/address/http/dtos/create.address.dto";
+import { CreateAddressDTO } from "src/core/address/adapters/http/dtos/create.address.dto";
 import { CreateNewAddressUseCase } from "../use-cases/create.new.address.use.case";
 import { Inject } from "@nestjs/common";
 

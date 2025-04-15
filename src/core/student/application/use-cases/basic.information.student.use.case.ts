@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { STUDENT_REPOSITORY, StudentRepository } from "../../domain/repositories/student.repository";
 import { StudentEntity } from "../../domain/entities/student.entity";
-import { CreateStudentDTO } from "src/adapters/student/http/dtos/create.student.dto";
+import { CreateStudentDTO } from "src/core/student/adapters/http/dtos/create.student.dto";
 
 @Injectable()
 export class BasicInformationStudentUseCase{

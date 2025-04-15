@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { BRANCH_OFFICE_REPOSITORY, BranchOfficeRepository } from "../../domain/repository/branch-office.repository";
-import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";import { CreateBranchOfficeDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.dto";
+import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";import { CreateBranchOfficeDTO } from "src/core/branch-office/adapters/http/dtos/create.branch-office.dto";
 
 @Injectable()
 export class CreateNewBranchOfficeUseCase{

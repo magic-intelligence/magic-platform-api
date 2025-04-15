@@ -1,6 +1,6 @@
 import { Inject } from "@nestjs/common";
 import { EMERGENCY_CONTACT_REPOSITORY, EmergencyContactRepository } from "../../domain/repositories/emergency-contact.repository";
-import { CreateEmergencyContactDTO } from "src/adapters/emergency-contact/http/dtos/create.emergency-contcat.dto";
+import { CreateEmergencyContactDTO } from "src/core/emergency-contact/adapters/http/dtos/create.emergency-contcat.dto";
 import { EmergencyContactEntity } from "../../domain/entities/emergency-contact.entity";
 
 export class EmergencyContactService{

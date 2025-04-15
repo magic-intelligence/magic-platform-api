@@ -1,6 +1,6 @@
 import { STUDENT_FAMILY_REPOSITORY, StudentFamilyRepository } from "../../domain/repositories/student-family.repository";
 import { Inject } from "@nestjs/common";
-import { CreateStudentFamilyDTO } from "src/adapters/student-family/http/dtos/create.student-family.dto";
+import { CreateStudentFamilyDTO } from "src/core/student-family/adapters/http/dtos/create.student-family.dto";
 import { StudentFamilyEntity } from "../../domain/entities/student-family.entity";
 
 export class StudentFamilyService {

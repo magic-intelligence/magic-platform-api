@@ -1,11 +1,12 @@
 import { INestApplication } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
-import { BranchOfficeRepositoryImpl } from "src/adapters/branch-office/persistence/repositories/branch-office.repository.impl";
-import { BranchOfficeSchema } from "src/adapters/branch-office/persistence/schemas/branch-office.schema";
+import { BranchOfficeRepositoryImpl } from "src/core/branch-office/adapters/persistence/repositories/branch-office.repository.impl";
+import { BranchOfficeSchema } from "src/core/branch-office/adapters/persistence/schemas/branch-office.schema";
 import { AppModule } from "src/app.module";
 import { Transactional } from "src/infraestructure/database/typeorm/transactions/transactional.decorator";
 import { createMemoryDatabase } from "src/shared/utils/create.memory.database";
 import { DataSource } from "typeorm";
+import { BranchOfficeMapper } from "src/core/branch-office/adapters/persistence/mappers/branch-office.mapper";
 
 // Metodología: Behavior Driven Development
 // Patron: Given-When-Then
@@ -56,9 +57,8 @@ describe('Pruebas al branch.repository.impl.ts', ()=>{
           createdAt: new Date('2025-03-11T20:58:06.331Z'),
           updatedAt: new Date('2025-03-11T20:58:06.331Z'),
         };
-    
-        const result = await repository.save(branch);
-        console.log(result, 'resultadoooooooooooooooooooooooooooooooo');
+        const entity = BranchOfficeMapper.toDomain(branch);
+        const result = await repository.save(entity);
         expect(result).not.toBeNull();
       });
 });

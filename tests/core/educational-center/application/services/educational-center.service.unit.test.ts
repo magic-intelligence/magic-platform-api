@@ -1,6 +1,7 @@
-import { CreateEducationalCenterDTO } from "src/adapters/educational-center/http/dtos/create.educational-center.dto";
+import { CreateEducationalCenterDTO } from "src/core/educational-center/adapters/http/dtos/create.educational-center.dto";
 import { EducationalCenterService } from "src/core/educational-center/application/services/educational-center.service";
 import { CreateNewEducationalCenterUseCase } from "src/core/educational-center/application/use-case/create.new.educational-center.use-case";
+import { EducationalCenterNameVO } from "src/core/educational-center/value-objects/educational-center.name.vo";
 
 // Metodología: Test Driven Development
 // Ciclo de la metodología{TDD}: Red-Green-Refactor
@@ -28,7 +29,7 @@ describe('Pruebas el educational-center.service.ts', ()=>{
         // Mock de la respuesta esperada
         const expectedResponse = {
             educationalCenterId: 1n,
-            name: 'Magic Intelligence',
+            name: EducationalCenterNameVO.create('Magic Intelligence'),
             isActive: true,
             createdAt: new Date("2025-03-11T20:58:06.331Z"),
             updatedAt: new Date("2025-03-11T20:58:06.331Z"),

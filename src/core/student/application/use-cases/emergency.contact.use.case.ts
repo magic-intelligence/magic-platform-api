@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { CreateEmergencyContactDTO } from "src/adapters/emergency-contact/http/dtos/create.emergency-contcat.dto";
-import { StudentFamilyPresenter } from "src/adapters/student-family/http/presenters/student-family.presenter";
+import { CreateEmergencyContactDTO } from "src/core/emergency-contact/adapters/http/dtos/create.emergency-contcat.dto";
+import { StudentFamilyPresenter } from "src/core/student-family/adapters/http/presenters/student-family.presenter";
 import { EmergencyContactService } from "src/core/emergency-contact/application/services/emergecy-contact.service";
 import { StudentFamilyService } from "src/core/student-family/application/service/student-family.service";
 

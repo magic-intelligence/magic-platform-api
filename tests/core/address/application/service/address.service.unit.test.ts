@@ -1,4 +1,4 @@
-import { CreateAddressDTO } from "src/adapters/address/http/dtos/create.address.dto";
+import { CreateAddressDTO } from "src/core/address/adapters/http/dtos/create.address.dto";
 import { AddressService } from "src/core/address/application/services/address.service";
 import { CreateNewAddressUseCase } from "src/core/address/application/use-cases/create.new.address.use.case";
 import { AddressEntity } from "src/core/address/domain/entities/address.entity";

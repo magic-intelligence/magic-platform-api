@@ -1,6 +1,6 @@
 import { AddressService } from "src/core/address/application/services/address.service";
 import { BranchOfficeService } from "../services/branch-office.service";
-import { CreateBranchOfficeWithAddressDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.with.address.dto";
+import { CreateBranchOfficeWithAddressDTO } from "src/core/branch-office/adapters/http/dtos/create.branch-office.with.address.dto";
 import { Inject } from "@nestjs/common";
 import { TRANSACTION_PORT, TransactionPort } from "src/shared/ports/transaction.port";
 import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";

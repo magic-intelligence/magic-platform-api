@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { ADDRESS_REPOSITORY, AddressRepository } from "../../domain/repositories/address.repository";
-import { CreateAddressDTO } from "src/adapters/address/http/dtos/create.address.dto";
+import { CreateAddressDTO } from "src/core/address/adapters/http/dtos/create.address.dto";
 import { AddressEntity } from "../../domain/entities/address.entity";
 
 @Injectable()

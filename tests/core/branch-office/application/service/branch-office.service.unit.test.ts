@@ -1,4 +1,4 @@
-import { CreateBranchOfficeDTO } from "src/adapters/branch-office/http/dtos/create.branch-office.dto";
+import { CreateBranchOfficeDTO } from "src/core/branch-office/adapters/http/dtos/create.branch-office.dto";
 import { BranchOfficeService } from "src/core/branch-office/application/services/branch-office.service";
 import { CreateNewBranchOfficeUseCase } from "src/core/branch-office/application/use-cases/create.new.branch-office.use.case";
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity"

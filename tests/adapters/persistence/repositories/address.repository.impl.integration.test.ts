@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { AddressRepositoryImpl } from 'src/adapters/address/persistence/repositories/address.repository.impl';
-import { AddressSchema } from 'src/adapters/address/persistence/schemas/address.schema';
+import { AddressRepositoryImpl } from 'src/core/address/adapters/persistence/repositories/address.repository.impl';
+import { AddressSchema } from 'src/core/address/adapters/persistence/schemas/address.schema';
 import { AppModule } from 'src/app.module';
 import { Transactional } from 'src/infraestructure/database/typeorm/transactions/transactional.decorator';
 import { createMemoryDatabase } from 'src/shared/utils/create.memory.database';

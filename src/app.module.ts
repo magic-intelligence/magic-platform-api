@@ -7,7 +7,7 @@ import { TransactionModule } from './infraestructure/database/typeorm/transactio
 import { BranchOfficeModule } from './core/branch-office/branch-office.module';
 import { AddressModule } from './core/address/address.module';
 import { EducationalCenterCoreModule } from './core/educational-center/educational-center.core.module';
-import { EducationalCenterAdapterModule } from './adapters/educational-center/educational-center.adapter.module';
+import { EducationalCenterAdapterModule } from './core/educational-center/adapters/educational-center.adapter.module';
 
 @Module({
   imports: [
