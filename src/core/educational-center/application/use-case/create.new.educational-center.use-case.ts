@@ -1,16 +1,18 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { EDUCATIONAL_CENTER_REPOSITORY, EducationalCenterRepository } from "../../domain/repositories/educational-center.repository";
-import { CreateEducationalCenterDTO } from "src/core/educational-center/adapters/http/dtos/create.educational-center.dto";
 import { EducationalCenterEntity } from "../../domain/entities/educational-center.entity";
+import { EducationalCenterNameVO } from "../../value-objects/educational-center.name.vo";
+import { EducationalCenterService } from "../services/educational-center.service";
 
 @Injectable()
 export class CreateNewEducationalCenterUseCase {
     constructor(
-        @Inject(EDUCATIONAL_CENTER_REPOSITORY)
-        private readonly educationalCenterRepository: EducationalCenterRepository,
+        @Inject()
+        private readonly service: EducationalCenterService,
     ) {}
 
-    async save(entity: EducationalCenterEntity) {
-        return await this.educationalCenterRepository.save(entity);
+    async execute(name: string){
+        const entity = new EducationalCenterEntity();
+        entity.name = EducationalCenterNameVO.create(name);
+        return await this.service.save(entity);
     }
 } 

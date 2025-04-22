@@ -6,8 +6,7 @@ import { StudentModule } from './core/student/student.module';
 import { TransactionModule } from './infraestructure/database/typeorm/transactions/transaction.module';
 import { BranchOfficeModule } from './core/branch-office/branch-office.module';
 import { AddressModule } from './core/address/address.module';
-import { EducationalCenterCoreModule } from './core/educational-center/educational-center.core.module';
-import { EducationalCenterAdapterModule } from './core/educational-center/adapters/educational-center.adapter.module';
+import { EducationalCenterModule } from './core/educational-center/adapters/educational-center.module';
 
 @Module({
   imports: [
@@ -18,8 +17,7 @@ import { EducationalCenterAdapterModule } from './core/educational-center/adapte
     BranchOfficeModule,
     AddressModule,
     TransactionModule,
-    EducationalCenterCoreModule,
-    EducationalCenterAdapterModule,
+    EducationalCenterModule,
   ],
 })
 export class AppModule {}
