@@ -1,14 +1,16 @@
-import { CreateAddressDTO } from "src/core/address/adapters/http/dtos/create.address.dto";
-import { CreateNewAddressUseCase } from "../use-cases/create.new.address.use.case";
 import { Inject } from "@nestjs/common";
+import { AddressEntity } from "../../domain/entities/address.entity";
+import { ADDRESS_REPOSITORY, AddressRepository } from "../../domain/repositories/address.repository";
 
 export class AddressService{
     constructor(
-        @Inject()
-        private readonly createNewAddressUseCase: CreateNewAddressUseCase,
+        @Inject(ADDRESS_REPOSITORY)
+        private readonly addressRepositoy: AddressRepository,
     ){}
 
-    async saveNewAddress(dto: CreateAddressDTO){
-        return this.createNewAddressUseCase.save(dto);
+    async saveNewAddress(entity: AddressEntity) {
+        const result = this.addressRepositoy.save(entity);
+        return result;
     }
+    
 }

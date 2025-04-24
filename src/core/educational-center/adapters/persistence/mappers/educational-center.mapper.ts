@@ -8,7 +8,7 @@ export class EducationalCenterMapper{
     static toDomain(schema?: EducationalCenterSchema): EducationalCenterEntity{
         const educationalCenterEntity = plainToInstance(EducationalCenterEntity, schema);
         if(!schema) return educationalCenterEntity;
-        educationalCenterEntity.name = EducationalCenterNameVO.create(schema.name);
+        educationalCenterEntity.name = EducationalCenterNameVO.set(schema.name);
         educationalCenterEntity.branchOffices = BranchOfficeMapper.toDomainList(schema?.branchOffices);
         return educationalCenterEntity;
     }
@@ -16,7 +16,7 @@ export class EducationalCenterMapper{
     static toPersistence(entity?: EducationalCenterEntity): EducationalCenterSchema{
         const educationalCenterSchema = plainToInstance(EducationalCenterSchema, entity);
         if(!entity) return educationalCenterSchema;
-        educationalCenterSchema.name = entity.name.getValue();
+        educationalCenterSchema.name = entity.name.get();
         educationalCenterSchema.branchOffices = BranchOfficeMapper.toPersistenceList(entity?.branchOffices);
         return educationalCenterSchema;
     }   

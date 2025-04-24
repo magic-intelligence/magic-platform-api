@@ -5,7 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { BranchOfficeController } from "src/core/branch-office/adapters/http/controllers/branch-office.controller";
 import { TransactionModule } from "src/infraestructure/database/typeorm/transactions/transaction.module";
 import { AddressModule } from "../address/address.module";
-import { CreateNewBranchOfficeFacade } from "./application/facade/create.new.branch-office.facade";
+// import { CreateNewBranchOfficeFacade } from "./application/facade/create.new.branch-office.facade";
 import { BranchOfficeService } from "./application/services/branch-office.service";
 import { CreateNewBranchOfficeUseCase } from "./application/use-cases/create.new.branch-office.use.case";
 import { BranchOfficeSchema } from "src/core/branch-office/adapters/persistence/schemas/branch-office.schema";
@@ -21,7 +21,7 @@ import { BranchOfficeSchema } from "src/core/branch-office/adapters/persistence/
             provide: BRANCH_OFFICE_REPOSITORY,
             useClass: BranchOfficeRepositoryImpl
         },
-        CreateNewBranchOfficeFacade,
+        // CreateNewBranchOfficeFacade,
         CreateNewBranchOfficeUseCase,
         BranchOfficeService,
     ],

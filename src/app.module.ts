@@ -7,11 +7,13 @@ import { TransactionModule } from './infraestructure/database/typeorm/transactio
 import { BranchOfficeModule } from './core/branch-office/branch-office.module';
 import { AddressModule } from './core/address/address.module';
 import { EducationalCenterModule } from './core/educational-center/adapters/educational-center.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
-    TypeormConfigModule,
+    EventEmitterModule.forRoot(),
     ConfigModule.forRoot(),
+    TypeormConfigModule,
     EmergencyContactModule,
     StudentModule,
     BranchOfficeModule,

@@ -1,16 +1,23 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { BRANCH_OFFICE_REPOSITORY, BranchOfficeRepository } from "../../domain/repository/branch-office.repository";
-import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";import { CreateBranchOfficeDTO } from "src/core/branch-office/adapters/http/dtos/create.branch-office.dto";
+import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";
+import { BranchOfficeService } from "../services/branch-office.service";
+import { CreateBranchOfficeAppDto } from "../../dtos/create.branch-office.app.dto";
 
 @Injectable()
 export class CreateNewBranchOfficeUseCase{
     constructor(
-        @Inject(BRANCH_OFFICE_REPOSITORY)
-        private readonly branchOfficeRepository: BranchOfficeRepository,
+        @Inject()
+        private readonly branchOfficeService: BranchOfficeService,
     ){}
 
-    async save( entity: BranchOfficeEntity){
-        const branchEntity = await this.branchOfficeRepository.save( entity );
-        return branchEntity; 
+    async execute(dto: CreateBranchOfficeAppDto){
+
+        const entity: BranchOfficeEntity = {
+            name: dto.name,
+            addressId: dto.addressId.get(),
+            educationalCenterId: dto.educationalCenterId.get(),
+        }
+
+        return this.branchOfficeService.saveNewBranchOffice(entity);
     }
 }

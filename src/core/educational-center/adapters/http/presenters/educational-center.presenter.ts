@@ -4,7 +4,7 @@ export class EducationalCenterPresenter {
     static toHttp(educationalCenter: EducationalCenterEntity){
         return {
             ...educationalCenter,
-            name: educationalCenter.name.getValue()
+            name: educationalCenter.name.get()
         }
     }
 

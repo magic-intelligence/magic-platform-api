@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString, MinLength } from "class-validator";
 
-export class CreateEducationalCenterDTO{
+export class CreateEducationalCenterHttpDTO{
     @MinLength(2)
     @IsNotEmpty()
     @IsString()
