@@ -14,7 +14,6 @@ import { BranchOfficeSchema } from "src/core/branch-office/adapters/persistence/
     imports:[
         TypeOrmModule.forFeature([BranchOfficeSchema]),
         TransactionModule,
-        AddressModule,
     ],
     providers:[
         {
@@ -26,7 +25,8 @@ import { BranchOfficeSchema } from "src/core/branch-office/adapters/persistence/
         BranchOfficeService,
     ],
     exports:[
-        BRANCH_OFFICE_REPOSITORY
+        CreateNewBranchOfficeUseCase,
+        BRANCH_OFFICE_REPOSITORY,
     ],
     controllers:[BranchOfficeController]
 })

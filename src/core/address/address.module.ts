@@ -5,6 +5,7 @@ import { AddressRepositoryImpl } from "src/core/address/adapters/persistence/rep
 import { AddressService } from "./application/services/address.service";
 import { TransactionModule } from "src/infraestructure/database/typeorm/transactions/transaction.module";
 import { AddressSchema } from "src/core/address/adapters/persistence/schemas/address.schema";
+import { CreateNewAddressUseCase } from "./application/use-cases/create.new.address.use-case";
 
 @Module({
     imports:[
@@ -17,9 +18,10 @@ import { AddressSchema } from "src/core/address/adapters/persistence/schemas/add
             useClass: AddressRepositoryImpl
         },
         AddressService,
+        CreateNewAddressUseCase
     ],
     exports: [
-        AddressService
+        CreateNewAddressUseCase
     ]
 })
 

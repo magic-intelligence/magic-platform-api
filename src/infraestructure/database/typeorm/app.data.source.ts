@@ -10,7 +10,7 @@ const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [`${__dirname}/../../../adapters/persistence/**/*.schema.{ts,js}`],
+  entities: [`${__dirname}/../../../core/**/*.schema.{ts,js}`],
   migrations: [`${__dirname}/migrations/*.{ts,js}`],
   synchronize: false,
   migrationsTableName: 'migrations',

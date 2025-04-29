@@ -13,6 +13,9 @@ export class BranchOfficeRepositoryImpl implements BranchOfficeRepository {
         // private readonly branchRepository: Repository<BranchSchema>,
         private readonly transactional: Transactional,
     ){}
+    update(entity: BranchOfficeEntity): Promise<BranchOfficeEntity> {
+        throw new Error("Method not implemented.");
+    }
     async save(entity: BranchOfficeEntity): Promise<BranchOfficeEntity> {
         try {
             const manager = this.transactional.getManager();

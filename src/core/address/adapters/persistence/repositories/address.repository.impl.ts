@@ -13,6 +13,9 @@ export class AddressRepositoryImpl implements AddressRepository{
         // private readonly addressRepository: Repository<AddressSchema>,
         private readonly transactional: Transactional,
     ){}
+    update(entity: AddressEntity): Promise<AddressEntity> {
+        throw new Error("Method not implemented.");
+    }
     async save(entity: AddressEntity): Promise<AddressEntity> {
         try {
             const manager = this.transactional.getManager();
