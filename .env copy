@@ -1,7 +1,0 @@
-DB_PASSWORD=admin123
-DB_NAME=magic_intelligence_db
-DB_HOST=localhost
-DB_PORT=5431
-DB_USER=magic_user
-
-PORT=3031
