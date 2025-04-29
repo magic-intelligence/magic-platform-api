@@ -14,7 +14,7 @@ export class EducationalCenterRepositoryImpl implements EducationalCenterReposit
         @InjectRepository(EducationalCenterSchema)
         private readonly educationalCenterRepository: Repository<EducationalCenterSchema>
     ){}
-
+    
     async save(entity: EducationalCenterEntity): Promise<EducationalCenterEntity> {
         try{
             const educationalCenterSchema = EducationalCenterMapper.toPersistence(entity);
@@ -33,6 +33,9 @@ export class EducationalCenterRepositoryImpl implements EducationalCenterReposit
         throw new Error("Method not implemented.");
     }
     delete(id: string): Promise<void> {
+        throw new Error("Method not implemented.");
+    }
+    update(entity: EducationalCenterEntity): Promise<EducationalCenterEntity> {
         throw new Error("Method not implemented.");
     }
 

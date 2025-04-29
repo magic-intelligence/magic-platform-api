@@ -1,10 +1,9 @@
 import { BranchOfficeEntity } from "src/core/branch-office/domain/entities/branch-office.entity";
 import { AddressMapper } from "../../../../address/adapters/persistence/mappers/address.mapper";
 import { plainToInstance } from "class-transformer";
-import { StudentMapper } from "../../../../student/adapters/persistence/mappers/student.mapper";
-import { ParentFamilyMapper } from "../../../../parent-family/adapters/persistence/mappers/parent-family.mapper";
 import { EducationalCenterMapper } from "../../../../educational-center/adapters/persistence/mappers/educational-center.mapper";
 import { BranchOfficeSchema } from "../schemas/branch-office.schema";
+import { BranchOfficeNameVO } from "src/core/branch-office/value-objects/branch-office.name.vo";
 
 export class BranchOfficeMapper{
     static toDomain(branchOfficeSchema?: BranchOfficeSchema): BranchOfficeEntity {
@@ -12,9 +11,7 @@ export class BranchOfficeMapper{
         const branchOfficeEntity = plainToInstance(BranchOfficeEntity, branchOfficeSchema);
 
         if(!branchOfficeSchema) return branchOfficeEntity;
-
-        branchOfficeEntity.students = StudentMapper.toDomainList(branchOfficeSchema.students);
-        branchOfficeEntity.parentFamilies = ParentFamilyMapper.toDomainList(branchOfficeSchema.parentFamilies);
+        branchOfficeEntity.name = BranchOfficeNameVO.set(branchOfficeSchema.name);
         branchOfficeEntity.address = AddressMapper.toDomain(branchOfficeSchema.address);
         branchOfficeEntity.educationalCenter = EducationalCenterMapper.toDomain(branchOfficeSchema.educationalCenter);
         return branchOfficeEntity;
@@ -25,8 +22,7 @@ export class BranchOfficeMapper{
 
         if(!branchOfficeEntity ) return branchOfficeSchema;
 
-        branchOfficeSchema.students = StudentMapper.toPersistenceList(branchOfficeEntity.students);
-        branchOfficeSchema.parentFamilies = ParentFamilyMapper.toPersistenceList(branchOfficeEntity.parentFamilies);
+        branchOfficeSchema.name = branchOfficeEntity.name.get();
         branchOfficeSchema.address = AddressMapper.toPersistence(branchOfficeEntity.address);
         branchOfficeSchema.educationalCenter = EducationalCenterMapper.toPersistence(branchOfficeEntity.educationalCenter);
         return branchOfficeSchema;

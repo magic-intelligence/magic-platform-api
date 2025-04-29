@@ -1,26 +1,17 @@
-import { CreateBranchOfficeDTO } from "src/core/branch-office/adapters/http/dtos/create.branch-office.dto";
-import { CreateNewBranchOfficeUseCase } from "../use-cases/create.new.branch-office.use.case";
-import { BadRequestException, Inject } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 import { BranchOfficeEntity } from "../../domain/entities/branch-office.entity";
-import { validate } from "class-validator";
+import { BRANCH_OFFICE_REPOSITORY, BranchOfficeRepository } from "../../domain/repository/branch-office.repository";
 
+@Injectable()
 export class BranchOfficeService{
     constructor(
-        @Inject()
-        private readonly createNewBranchOfficeUseCase: CreateNewBranchOfficeUseCase,
+        @Inject(BRANCH_OFFICE_REPOSITORY)
+        private readonly branchOfficeRepository: BranchOfficeRepository,
     ){}
 
-    async saveNewBranch(dto: CreateBranchOfficeDTO){
-
-        // Segunda validacion del DTO
-        if(!await validate(dto)) throw new BadRequestException();
-
-        const entity: BranchOfficeEntity= {
-            name: dto.name,
-            addressId: dto.addressId,
-            educationalCenterId: dto.educationalCenterId,
-        }
-
-        return this.createNewBranchOfficeUseCase.save(entity);
+    async saveNewBranchOffice( entity: BranchOfficeEntity){
+        const result = await this.branchOfficeRepository.save( entity );
+        return result; 
     }
+    
 }
