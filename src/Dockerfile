@@ -1,9 +1,9 @@
 # Dockerfile
-FROM node:20-alpine
+FROM node:lts-alpine as base
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 RUN npm install
 
 COPY . .
