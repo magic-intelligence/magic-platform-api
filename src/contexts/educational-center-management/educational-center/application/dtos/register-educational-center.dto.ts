@@ -13,5 +13,6 @@ export class RegisterEducationalCenterDto{
 
     constructor(name: string){
         this.name = name;
+        Object.freeze(this); // Congela el objeto para hacerlo inmutable
     }
 }

@@ -18,5 +18,7 @@ export abstract class DomainEvent {
     this.occurredOn = new Date();
     this.aggregateId = aggregateId;
     this.eventId = crypto.randomUUID(); // Generamos un UUID para cada evento
+    Object.freeze(this.eventId);
   }
+  
 }

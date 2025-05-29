@@ -27,5 +27,6 @@ export class EducationalCenterResponseDto {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.deletedAt = deletedAt;
+    Object.freeze(this);
   }
 }

@@ -1,10 +1,9 @@
 // src/contexts/educational-center-management/educational-center/application/use-cases/register-educational-center.use-case.ts
 
 import { RegisterEducationalCenterDto } from '../dtos/register-educational-center.dto';
-import { EDUCATIONAL_CENTER_REPOSITORY, EducationalCenterRepository } from '../../domain/repositories/educational-center.repository';
+import { EducationalCenterRepository } from '../../domain/repositories/educational-center.repository';
 import { EducationalCenterEntity } from '../../domain/entities/educational-center.entity';
 import { Name } from '../../domain/values-objects/name.vo';
-import { Inject } from '@nestjs/common';
 
 
 /**
