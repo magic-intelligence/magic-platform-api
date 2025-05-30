@@ -12,9 +12,9 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity('educational_center') // Mapea esta clase a la tabla 'educational_centers'
 export class EducationalCenterOrmEntity {
   @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'educational_center_id' })
-  id: bigint; // Usamos bigint para corresponder con bigserial de PostgreSQL
+  educationalCenterId: bigint; // Usamos bigint para corresponder con bigserial de PostgreSQL
 
-  @Column({ type: 'varchar', length: 150, unique: true, nullable: false })
+  @Column({ type: 'varchar', length: 250, unique: true, nullable: false })
   name: string;
 
   @CreateDateColumn({ type: 'timestamp with time zone', name: 'created_at', default: () => 'CURRENT_TIMESTAMP' })

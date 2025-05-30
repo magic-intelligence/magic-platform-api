@@ -25,7 +25,7 @@ describe('EducationalCenterResponseDto', () => {
 
       // Entonces debería tener todas las propiedades correctamente asignadas
       it('Entonces debería tener la propiedad "id" correctamente asignada', () => {
-        expect(dto.id).toBe(mockId);
+        expect(dto.educationalCenterId).toBe(mockId);
       });
 
       it('Entonces debería tener la propiedad "name" correctamente asignada', () => {
@@ -68,7 +68,7 @@ describe('EducationalCenterResponseDto', () => {
       it('Entonces todas sus propiedades deberían ser de solo lectura', () => {
         const attemptModificationId = () => {
           // @ts-ignore
-          dto.id = 'new-id';
+          dto.educationalCenterid = 'new-id';
         };
         const attemptModificationName = () => {
           // @ts-ignore
@@ -95,7 +95,7 @@ describe('EducationalCenterResponseDto', () => {
         expect(attemptModificationDeletedAt).toThrow();
 
         // Pero los valores originales deben permanecer inalterados
-        expect(dto.id).toBe(mockId);
+        expect(dto.educationalCenterId).toBe(mockId);
         expect(dto.name).toBe(mockName);
         expect(dto.createdAt).toBe(mockCreatedAt);
         expect(dto.updatedAt).toBe(mockUpdatedAt);

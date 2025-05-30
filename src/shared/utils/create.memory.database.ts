@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import { DataType, newDb} from 'pg-mem';
+import { EducationalCenterOrmEntity } from "src/contexts/educational-center-management/educational-center/infraestruture/persistence/typeorm/entities/educational-center-orm-entity";
 
 export async function createMemoryDatabase():Promise<DataSource>{
   
@@ -41,15 +42,15 @@ export async function createMemoryDatabase():Promise<DataSource>{
   const dataSource = db.adapters.createTypeormDataSource({
     type: 'postgres',
     database: 'test_db',
-    entities: [`${__dirname}/../../../**/*.schema.{ts,js}`],
-    migrations: [`${__dirname}/../../../config/database/typeorm/migrations/*.{ts,js}`],
-    migrationsTableName: 'migrations',
-    synchronize: false,
+    entities: [EducationalCenterOrmEntity],
+    // migrations: [`${__dirname}/../../../config/database/typeorm/migrations/*.{ts,js}`],
+    // migrationsTableName: 'migrations',
+    synchronize: true,
   });
 
   await dataSource.initialize();
   // await dataSource.synchronize();
-  await dataSource.runMigrations(); // En lugar de synchronize()
+  // await dataSource.runMigrations(); // En lugar de synchronize()
 
   return dataSource;
 }

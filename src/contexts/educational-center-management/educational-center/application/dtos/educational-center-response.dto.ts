@@ -9,20 +9,20 @@
  * Contiene solo los datos de salida relevantes, mapeados desde la entidad de dominio.
  */
 export class EducationalCenterResponseDto {
-  readonly id: string; // El ID del centro educativo (como string para compatibilidad JSON)
+  readonly educationalCenterId: string; // El ID del centro educativo (como string para compatibilidad JSON)
   readonly name: string; // El nombre del centro educativo
   readonly createdAt: Date; // La fecha de creación
   readonly updatedAt: Date | null; // La fecha de la última actualización
   readonly deletedAt: Date | null; // La fecha de borrado lógico
 
   constructor(
-    id: string,
+    educationalCenterId: string,
     name: string,
     createdAt: Date,
     updatedAt: Date | null,
     deletedAt: Date | null,
   ) {
-    this.id = id;
+    this.educationalCenterId = educationalCenterId;
     this.name = name;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;

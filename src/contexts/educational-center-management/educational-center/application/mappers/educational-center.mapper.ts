@@ -28,6 +28,15 @@ export class EducationalCenterMapper {
     );
   }
 
+  // public static toResponseListDto(entities:EducationalCenterEntity[]):{educationalCenters:EducationalCenterResponseDto[]}{
+  //   if(!entities) return {
+  //     educationalCenters:[]
+  //   };
+  //   return {
+  //     educationalCenters: entities.map(item => this.toResponseDto(item) )
+  //   }
+  // }
+
   // Si necesitamos mapear colecciones, podríamos tener:
   // public static toResponseDtos(entities: EducationalCenter[]): EducationalCenterResponseDto[] {
   //   return entities.map(entity => this.toResponseDto(entity));

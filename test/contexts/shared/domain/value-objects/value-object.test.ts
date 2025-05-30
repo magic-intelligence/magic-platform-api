@@ -47,6 +47,7 @@ describe('ValueObject', () => {
     const vo1 = new SimpleValueObject('testValue');
     const vo2 = new SimpleValueObject('testValue');
     const vo3 = new SimpleValueObject('anotherValue');
+    const vo4 = new SimpleValueObject('testValue1');
 
     describe('Cuando se comparan dos SimpleValueObjects idénticos', () => {
       const result = vo1.equals(vo2);

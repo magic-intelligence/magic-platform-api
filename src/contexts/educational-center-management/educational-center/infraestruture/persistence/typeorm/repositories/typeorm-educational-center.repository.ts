@@ -37,7 +37,7 @@ export class TypeOrmEducationalCenterRepository implements EducationalCenterRepo
     // Usamos el ID del dominio si existe para una actualización,
     // o creamos una nueva entidad ORM si es una nueva inserción.
     let ormEntity = await this.typeOrmRepository.findOne({
-      where: { id: center.educationalCenterId as any }, // TypeORM puede necesitar un cast para bigint en algunos casos
+      where: { educationalCenterId: center.educationalCenterId as any }, // TypeORM puede necesitar un cast para bigint en algunos casos
     });
 
     if (ormEntity) {
@@ -77,7 +77,7 @@ export class TypeOrmEducationalCenterRepository implements EducationalCenterRepo
     // Usamos el método de fábrica 'reconstitute' para crear la entidad de dominio
     // a partir de datos ya existentes, sin emitir eventos de dominio.
     return EducationalCenterEntity.reconstitute(
-      savedOrmEntity.id,
+      savedOrmEntity.educationalCenterId,
       Name.create(savedOrmEntity.name), // Reconstruimos el Value Object Name
       savedOrmEntity.createdAt,
       savedOrmEntity.updatedAt,
@@ -96,7 +96,7 @@ export class TypeOrmEducationalCenterRepository implements EducationalCenterRepo
   async findById(id: bigint): Promise<EducationalCenterEntity | null> {
     // 1. Buscar la entidad ORM en la base de datos.
     const ormEntity = await this.typeOrmRepository.findOne({
-      where: { id: id as any }, // TypeORM y BigInt
+      where: { educationalCenterId: id as any }, // TypeORM y BigInt
     });
 
     if (!ormEntity) {
@@ -107,7 +107,7 @@ export class TypeOrmEducationalCenterRepository implements EducationalCenterRepo
     // Usamos el método de fábrica 'reconstitute' para crear la entidad de dominio
     // a partir de datos ya existentes, sin emitir eventos de dominio.
     return EducationalCenterEntity.reconstitute(
-      ormEntity.id,
+      ormEntity.educationalCenterId,
       Name.create(ormEntity.name), // Reconstruimos el Value Object Name
       ormEntity.createdAt,
       ormEntity.updatedAt,
