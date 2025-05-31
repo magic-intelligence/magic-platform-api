@@ -21,5 +21,5 @@ export class RegisterEducationalCenterRequestDto {
   @IsNotEmpty({ message: 'El nombre no puede estar vacío.' })
   @MinLength(3, { message: 'El nombre debe tener como mínimo 3 caracteres.' })
   @MaxLength(250, { message: 'El nombre no debe ser mayor a 250 caracteres.' })
-  readonly name: string;
+  name: string;
 }
